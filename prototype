@@ -1,0 +1,338 @@
+"""
+
+Cunyuan, JI.
+cygee99@outlook.com
+
+"""
+
+ResNet50(
+  (net): Sequential(
+    (0): Sequential(
+      (0): Conv2D(3 -> 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3))
+      (1): Activation(relu)
+      (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=64)
+    )
+    (1): ResidualLayer(
+      (trunk): Sequential(
+        (0): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(64 -> 256, kernel_size=(1, 1), stride=(2, 2))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(64 -> 64, kernel_size=(1, 1), stride=(2, 2))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=64)
+            (3): Conv2D(64 -> 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=64)
+            (6): Conv2D(64 -> 256, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+          )
+          (final_relu): Activation(relu)
+        )
+        (1): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(256 -> 256, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(256 -> 64, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=64)
+            (3): Conv2D(64 -> 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=64)
+            (6): Conv2D(64 -> 256, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+          )
+          (final_relu): Activation(relu)
+        )
+        (2): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(256 -> 256, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(256 -> 64, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=64)
+            (3): Conv2D(64 -> 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=64)
+            (6): Conv2D(64 -> 256, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+          )
+          (final_relu): Activation(relu)
+        )
+      )
+    )
+    (2): ResidualLayer(
+      (trunk): Sequential(
+        (0): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(256 -> 512, kernel_size=(1, 1), stride=(2, 2))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=512)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(256 -> 128, kernel_size=(1, 1), stride=(2, 2))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=128)
+            (3): Conv2D(128 -> 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=128)
+            (6): Conv2D(128 -> 512, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=512)
+          )
+          (final_relu): Activation(relu)
+        )
+        (1): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(512 -> 512, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=512)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(512 -> 128, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=128)
+            (3): Conv2D(128 -> 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=128)
+            (6): Conv2D(128 -> 512, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=512)
+          )
+          (final_relu): Activation(relu)
+        )
+        (2): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(512 -> 512, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=512)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(512 -> 128, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=128)
+            (3): Conv2D(128 -> 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=128)
+            (6): Conv2D(128 -> 512, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=512)
+          )
+          (final_relu): Activation(relu)
+        )
+        (3): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(512 -> 512, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=512)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(512 -> 128, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=128)
+            (3): Conv2D(128 -> 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=128)
+            (6): Conv2D(128 -> 512, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=512)
+          )
+          (final_relu): Activation(relu)
+        )
+      )
+    )
+    (3): ResidualLayer(
+      (trunk): Sequential(
+        (0): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(512 -> 1024, kernel_size=(1, 1), stride=(2, 2))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=1024)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(512 -> 256, kernel_size=(1, 1), stride=(2, 2))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+            (3): Conv2D(256 -> 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+            (6): Conv2D(256 -> 1024, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=1024)
+          )
+          (final_relu): Activation(relu)
+        )
+        (1): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(1024 -> 1024, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=1024)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(1024 -> 256, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+            (3): Conv2D(256 -> 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+            (6): Conv2D(256 -> 1024, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=1024)
+          )
+          (final_relu): Activation(relu)
+        )
+        (2): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(1024 -> 1024, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=1024)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(1024 -> 256, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+            (3): Conv2D(256 -> 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+            (6): Conv2D(256 -> 1024, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=1024)
+          )
+          (final_relu): Activation(relu)
+        )
+        (3): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(1024 -> 1024, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=1024)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(1024 -> 256, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+            (3): Conv2D(256 -> 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+            (6): Conv2D(256 -> 1024, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=1024)
+          )
+          (final_relu): Activation(relu)
+        )
+        (4): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(1024 -> 1024, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=1024)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(1024 -> 256, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+            (3): Conv2D(256 -> 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+            (6): Conv2D(256 -> 1024, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=1024)
+          )
+          (final_relu): Activation(relu)
+        )
+        (5): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(1024 -> 1024, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=1024)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(1024 -> 256, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+            (3): Conv2D(256 -> 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=256)
+            (6): Conv2D(256 -> 1024, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=1024)
+          )
+          (final_relu): Activation(relu)
+        )
+      )
+    )
+    (4): ResidualLayer(
+      (trunk): Sequential(
+        (0): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(1024 -> 2048, kernel_size=(1, 1), stride=(2, 2))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=2048)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(1024 -> 512, kernel_size=(1, 1), stride=(2, 2))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=512)
+            (3): Conv2D(512 -> 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=512)
+            (6): Conv2D(512 -> 2048, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=2048)
+          )
+          (final_relu): Activation(relu)
+        )
+        (1): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(2048 -> 2048, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=2048)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(2048 -> 512, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=512)
+            (3): Conv2D(512 -> 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=512)
+            (6): Conv2D(512 -> 2048, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=2048)
+          )
+          (final_relu): Activation(relu)
+        )
+        (2): ResidualUnit(
+          (branch): Sequential(
+            (0): Conv2D(2048 -> 2048, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=2048)
+          )
+          (trunk): Sequential(
+            (0): Conv2D(2048 -> 512, kernel_size=(1, 1), stride=(1, 1))
+            (1): Activation(relu)
+            (2): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=512)
+            (3): Conv2D(512 -> 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (4): Activation(relu)
+            (5): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=512)
+            (6): Conv2D(512 -> 2048, kernel_size=(1, 1), stride=(1, 1))
+            (7): Activation(relu)
+            (8): BatchNorm(axis=1, eps=1e-05, momentum=0.9, fix_gamma=False, use_global_stats=False, in_channels=2048)
+          )
+          (final_relu): Activation(relu)
+        )
+      )
+    )
+    (5): MaxPool2D(size=(2, 2), stride=(2, 2), padding=(0, 0), ceil_mode=False)
+    (6): Dense(18432 -> 1000, linear)
+  )
+)
