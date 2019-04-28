@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import mxnet as mx
 from symbols import resnet50
 from mxnet.gluon import nn
-from mxnet import nd,sym
+from mxnet import nd, sym, autograd
 
 
 def genChip(x):
@@ -53,9 +53,10 @@ class HybridFocusBranch(nn.HybridBlock):
 def test():
     x = nd.random.normal(0, 1, (1, 3, 512, 512), ctx = mx.gpu())
     basenet = resnet50.ResNet50(params=resnet50.params, IF_DENSE=False)
-    basenet.initialize(ctx = mx.gpu())
-    x = basenet(x)
-    focusnet = FocusBranch()
+    focusnet = nn.Sequential()
+    focusnet.add(
+        basenet,
+        FocusBranch()
+    )
     focusnet.initialize(ctx = mx.gpu())
     x = focusnet(x)
-    print(x)

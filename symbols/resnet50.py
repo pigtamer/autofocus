@@ -74,7 +74,7 @@ class ResidualUnit(nn.Block):
         res_shortcut = self.branch(x)
         res_trunk = self.trunk(x)
         res = self.final_relu(res_shortcut + res_trunk)
-        print(res.shape)
+        # print(res.shape)
         return res
 
 

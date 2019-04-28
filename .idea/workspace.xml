@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="286c8353-9499-4b59-8dc5-a1e9a77866f1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chips/focus_branch.py" beforeDir="false" afterPath="$PROJECT_DIR$/chips/focus_branch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symbols/resnet50.py" beforeDir="false" afterPath="$PROJECT_DIR$/symbols/resnet50.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/coco_af.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/coco_af.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,8 +53,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/symbols/resnet50.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2322">
-                  <caret line="132" column="31" selection-start-line="132" selection-start-column="31" selection-end-line="132" selection-end-column="31" />
+                <state relative-caret-position="267">
+                  <caret line="58" column="37" lean-forward="true" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -62,8 +65,20 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/symbols/resnet50_hybrid.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2466">
-                  <caret line="140" column="8" selection-start-line="140" selection-start-column="8" selection-end-line="145" />
+                <state relative-caret-position="799">
+                  <caret line="132" column="21" selection-start-line="132" selection-start-column="21" selection-end-line="132" selection-end-column="21" />
+                  <folding>
+                    <element signature="e#0#31#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/chips/focus_branch.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="396">
+                  <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -72,13 +87,32 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/chips/focus_branch.py">
+            <entry file="file://$PROJECT_DIR$/chips/test_module_fb.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="380">
-                  <caret line="36" column="40" lean-forward="true" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+                <state relative-caret-position="144">
+                  <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+                  <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/symbols/VGG.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="411">
+                  <caret line="35" column="71" selection-start-line="35" selection-start-column="71" selection-end-line="35" selection-end-column="71" />
                   <folding>
-                    <element signature="e#0#31#0" expanded="true" />
+                    <element signature="e#0#18#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/matplotlib/image.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="192">
+                  <caret line="637" selection-start-line="637" selection-end-line="637" />
                 </state>
               </provider>
             </entry>
@@ -99,14 +133,23 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/chips/focus_branch.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="90">
-                  <caret line="6" selection-start-line="6" selection-end-line="6" />
+                <state relative-caret-position="371">
+                  <caret line="57" column="15" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/utils/coco_af.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="108">
+                  <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
                 </state>
               </provider>
             </entry>
@@ -137,6 +180,10 @@
       <find>mx.gpu()</find>
       <find>fpn</find>
       <find>FPN</find>
+      <find>rbxs</find>
+      <find>print</find>
+      <find>trunk</find>
+      <find>input_size</find>
     </findStrings>
     <replaceStrings>
       <replace>Block</replace>
@@ -145,6 +192,7 @@
       <replace>kernel_size</replace>
       <replace>HybridSequential</replace>
       <replace>ctx</replace>
+      <replace>xxyy</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -159,8 +207,11 @@
         <option value="$PROJECT_DIR$/symbols/resnet50_hyb.py" />
         <option value="$PROJECT_DIR$/symbols/resnet50_hybrid.py" />
         <option value="$PROJECT_DIR$/symbols/finetune.py" />
-        <option value="$PROJECT_DIR$/symbols/resnet50.py" />
         <option value="$PROJECT_DIR$/chips/focus_branch.py" />
+        <option value="$PROJECT_DIR$/symbols/resnet50.py" />
+        <option value="$PROJECT_DIR$/utils/coco_af.py" />
+        <option value="$PROJECT_DIR$/symbols/VGG.py" />
+        <option value="$PROJECT_DIR$/chips/test_module_fb.py" />
       </list>
     </option>
   </component>
@@ -228,7 +279,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Nosetests for focus_branch.test">
+  <component name="RunManager" selected="Python.test_module_fb">
+    <configuration name="coco_af" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="autofocus" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/coco_af.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="finetune" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="autofocus" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -271,6 +343,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test_module_fb" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="autofocus" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chips" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chips/test_module_fb.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Nosetests for focus_branch.test" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <module name="autofocus" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -286,58 +379,36 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Nosetests for resnet50_hybrid.test" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+    <configuration name="Nosetests in test_module_fb.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <module name="autofocus" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/symbols" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chips" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;resnet50_hybrid.test&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Nosetests for resnet50.test" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
-      <module name="autofocus" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/symbols" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;resnet50.test&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Nosetests in resnet50.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
-      <module name="autofocus" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/symbols" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/symbols/resnet50.py&quot;" />
+      <option name="_new_additionalArguments" value="&quot;-l 0 -dp ../data/uav/chengdu/ -e 5 -is 256 -bs 4 &quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/chips/test_module_fb.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.coco_af" />
+      <item itemvalue="Python.finetune" />
+      <item itemvalue="Python tests.Nosetests for focus_branch.test" />
+      <item itemvalue="Python tests.Nosetests in test_module_fb.py" />
+      <item itemvalue="Python.test_module_fb" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test_module_fb" />
+        <item itemvalue="Python tests.Nosetests in test_module_fb.py" />
         <item itemvalue="Python tests.Nosetests for focus_branch.test" />
+        <item itemvalue="Python.coco_af" />
         <item itemvalue="Python.finetune" />
-        <item itemvalue="Python tests.Nosetests for resnet50_hybrid.test" />
-        <item itemvalue="Python tests.Nosetests in resnet50.py" />
-        <item itemvalue="Python tests.Nosetests for resnet50.test" />
       </list>
     </recent_temporary>
   </component>
@@ -355,27 +426,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Nosetests_in_resnet50_py - 2019.03.19 at 16h 19m 36s.xml">
-      <configuration name="Nosetests in resnet50.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_in_resnet50_py - 2019.03.19 at 16h 19m 50s.xml">
-      <configuration name="Nosetests in resnet50.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_for_resnet50_test - 2019.03.19 at 16h 24m 47s.xml">
-      <configuration name="Nosetests for resnet50.test" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_for_resnet50_hybrid_test - 2019.03.19 at 16h 32m 09s.xml">
-      <configuration name="Nosetests for resnet50_hybrid.test" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_for_resnet50_hybrid_test - 2019.03.19 at 16h 38m 16s.xml">
-      <configuration name="Nosetests for resnet50_hybrid.test" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_for_resnet50_hybrid_test - 2019.03.19 at 21h 32m 59s.xml">
-      <configuration name="Nosetests for resnet50_hybrid.test" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_in_resnet50_py - 2019.03.20 at 10h 35m 26s.xml">
-      <configuration name="Nosetests in resnet50.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Nosetests_in_resnet50_py - 2019.04.16 at 10h 02m 36s.xml">
       <configuration name="Nosetests in resnet50.py" configurationId="tests" />
     </history-entry>
@@ -384,6 +434,27 @@
     </history-entry>
     <history-entry file="Nosetests_for_focus_branch_test - 2019.04.23 at 10h 34m 13s.xml">
       <configuration name="Nosetests for focus_branch.test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_for_focus_branch_test - 2019.04.28 at 18h 59m 53s.xml">
+      <configuration name="Nosetests for focus_branch.test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_for_focus_branch_test - 2019.04.28 at 19h 00m 18s.xml">
+      <configuration name="Nosetests for focus_branch.test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_test_module_fb_py - 2019.04.28 at 19h 06m 14s.xml">
+      <configuration name="Nosetests in test_module_fb.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_test_module_fb_py - 2019.04.28 at 19h 06m 55s.xml">
+      <configuration name="Nosetests in test_module_fb.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_test_module_fb_py - 2019.04.28 at 19h 07m 06s.xml">
+      <configuration name="Nosetests in test_module_fb.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_test_module_fb_py - 2019.04.28 at 19h 33m 54s.xml">
+      <configuration name="Nosetests in test_module_fb.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_test_module_fb_py - 2019.04.28 at 19h 33m 58s.xml">
+      <configuration name="Nosetests in test_module_fb.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -404,13 +475,13 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3667007" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3667007" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37691522" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32925585" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.31971398" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.30132788" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -425,11 +496,6 @@
           <url>file://$PROJECT_DIR$/symbols/resnet50.py</url>
           <line>156</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/chips/focus_branch.py</url>
-          <line>60</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/symbols/resnet50.py</url>
@@ -460,11 +526,6 @@
           <url>file://$PROJECT_DIR$/symbols/finetune.py</url>
           <line>25</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/chips/focus_branch.py</url>
-          <line>57</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -533,26 +594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/symbols/resnet50.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2322">
-          <caret line="132" column="31" selection-start-line="132" selection-start-column="31" selection-end-line="132" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symbols/resnet50_hybrid.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2466">
-          <caret line="140" column="8" selection-start-line="140" selection-start-column="8" selection-end-line="145" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -563,13 +604,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chips/focus_branch.py">
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/IPython/core/interactiveshell.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="36" column="40" lean-forward="true" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+        <state relative-caret-position="246">
+          <caret line="3293" column="46" selection-start-line="3293" selection-start-column="46" selection-end-line="3293" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/matplotlib/image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="637" selection-start-line="637" selection-end-line="637" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symbols/resnet50_hybrid.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="132" column="21" selection-start-line="132" selection-start-column="21" selection-end-line="132" selection-end-column="21" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chips/focus_branch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/coco_af.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symbols/resnet50.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="58" column="37" lean-forward="true" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symbols/VGG.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="35" column="71" selection-start-line="35" selection-start-column="71" selection-end-line="35" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chips/test_module_fb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
         </state>
       </provider>
     </entry>
