@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="286c8353-9499-4b59-8dc5-a1e9a77866f1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chips/Focuser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chips/focus_branch.py" beforeDir="false" afterPath="$PROJECT_DIR$/chips/focus_branch.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chips/test_module_fb.py" beforeDir="false" afterPath="$PROJECT_DIR$/chips/test_module_fb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symbols/VGG.py" beforeDir="false" afterPath="$PROJECT_DIR$/symbols/VGG.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/coco_af.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/coco_af.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,8 +63,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/chips/test_module_fb.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="222">
-                  <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+                <state relative-caret-position="247">
+                  <caret line="81" selection-start-line="81" selection-end-line="81" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -107,8 +103,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/utils/coco_af.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="237">
-                  <caret line="120" column="26" lean-forward="true" selection-start-line="120" selection-start-column="26" selection-end-line="120" selection-end-column="26" />
+                <state relative-caret-position="229">
+                  <caret line="149" selection-start-line="149" selection-end-line="149" />
                   <folding>
                     <element signature="e#80#113#0" expanded="true" />
                   </folding>
@@ -172,8 +168,8 @@
         <option value="$PROJECT_DIR$/symbols/resnet50.py" />
         <option value="$PROJECT_DIR$/symbols/VGG.py" />
         <option value="$PROJECT_DIR$/chips/focus_branch.py" />
-        <option value="$PROJECT_DIR$/utils/coco_af.py" />
         <option value="$PROJECT_DIR$/chips/test_module_fb.py" />
+        <option value="$PROJECT_DIR$/utils/coco_af.py" />
       </list>
     </option>
   </component>
@@ -437,13 +433,13 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3667007" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3667007" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37691522" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32925585" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.30132788" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.30132788" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -656,22 +652,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/coco_af.py">
+    <entry file="file://$PROJECT_DIR$/chips/test_module_fb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="120" column="26" lean-forward="true" selection-start-line="120" selection-start-column="26" selection-end-line="120" selection-end-column="26" />
+        <state relative-caret-position="247">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
           <folding>
-            <element signature="e#80#113#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chips/test_module_fb.py">
+    <entry file="file://$PROJECT_DIR$/utils/coco_af.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+        <state relative-caret-position="229">
+          <caret line="149" selection-start-line="149" selection-end-line="149" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#80#113#0" expanded="true" />
           </folding>
         </state>
       </provider>

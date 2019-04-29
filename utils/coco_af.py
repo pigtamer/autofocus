@@ -148,6 +148,28 @@ def fmap_lossfunc(fmap, focus_lbl):
     return res
 
 
+def lstlbl2bbox(lbls, IF_COCO=False, orig_size=None):
+    """
+    convert mxnet lst file labelling to bounding box
+    :param lbls: [lbl, xmin, ymin, xmax, ymax]
+    :return:
+    """
+    xxyy = lbls.asnumpy()[:, :, 1:]  # miniminmaxmax
+    ## for tuple
+    # xxyy[:, 0] *= orig_size[0]
+    # xxyy[:, 1] *= orig_size[1]
+    # xxyy[:, 2] *= orig_size[0]
+    # xxyy[:, 3] *= orig_size[1]
+    xxyy *= orig_size
+    if IF_COCO:  # cvt to minminwidthheight
+        xywh = xxyy.copy()
+        xywh[:, :, 2] = -xxyy[:, :, 0] + xxyy[:, :, 2]
+        xywh[:, :, 3] = -xxyy[:, :, 1] + xxyy[:, :, 3]
+        return xywh
+    else:
+        return xxyy
+
+
 def test():
     input_size = [640, 640]
 

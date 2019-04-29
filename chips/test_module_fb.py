@@ -80,28 +80,6 @@ trainer = mx.gluon.Trainer(net.collect_params(), args.optimize_method,
                            {'learning_rate': args.learning_rate, 'wd': 5e-4})
 
 
-def lstlbl2bbox(lbls, IF_COCO=False, orig_size=None):
-    """
-    convert mxnet lst file labelling to bounding box
-    :param lbls: [lbl, xmin, ymin, xmax, ymax]
-    :return:
-    """
-    xxyy = lbls.asnumpy()[:, :, 1:]  # miniminmaxmax
-    ## for tuple
-    # xxyy[:, 0] *= orig_size[0]
-    # xxyy[:, 1] *= orig_size[1]
-    # xxyy[:, 2] *= orig_size[0]
-    # xxyy[:, 3] *= orig_size[1]
-    xxyy *= orig_size
-    if IF_COCO:  # cvt to minminwidthheight
-        xywh = xxyy.copy()
-        xywh[:, :, 2] = -xxyy[:, :, 0] + xxyy[:, :, 2]
-        xywh[:, :, 3] = -xxyy[:, :, 1] + xxyy[:, :, 3]
-        return xywh
-    else:
-        return xxyy
-
-
 cls_loss = gloss.SoftmaxCrossEntropyLoss()
 
 if args.load:
@@ -124,9 +102,9 @@ else:
                                       input_size=[edge_size] * 2,
                                       gts=gts,
                                       lthres=9 ** 2, rthres=64 ** 2)
-                plt.imshow(
-                    cv.resize(lbls[0, 0, :, :], (edge_size, edge_size)) * nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3)
-                plt.show()
+                # plt.imshow(
+                #     cv.resize(lbls[0, 0, :, :], (edge_size, edge_size)) * nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3)
+                # plt.show()
                 l = fmap_lossfunc(fmap_genned, nd.array(lbls, ctx=mx.gpu()))
 
             l.backward()
