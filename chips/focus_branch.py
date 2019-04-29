@@ -22,11 +22,13 @@ class FocusBranch(nn.Block):
             nn.Activation(activation='relu'),
             nn.Conv2D(channels=256, kernel_size=1, strides=1, padding=0),
             nn.Activation(activation='relu'),
+            nn.Conv2D(channels=1, kernel_size=1, strides=1, padding=0),
+            nn.Activation(activation='relu')
         )
 
     def forward(self, x, **kwargs):
         x = self.net(x)
-        x = nd.softmax(x, axis=1)
+        # x = nd.softmax(x, axis=1)
         # res = genChip(x)
         return x
 
@@ -42,6 +44,7 @@ class HybridFocusBranch(nn.HybridBlock):
             nn.Activation(activation='relu'),
             nn.Conv2D(channels=256, kernel_size=1, strides=1, padding=0),
             nn.Activation(activation='relu'),
+            nn.Conv2D(channels=1, kernel_size=1, strides=1, padding=0)
         )
 
     def hybrid_forward(self, F, x, *args, **kwargs):

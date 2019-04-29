@@ -3,6 +3,7 @@ import mxnet as mx
 from symbols import resnet50, VGG
 from mxnet.gluon import nn
 from mxnet import nd, sym, autograd, image
+from mxnet.gluon import loss as gloss
 import argparse, time
 from chips.focus_branch import *
 from utils.coco_af import *
@@ -22,7 +23,7 @@ parser.add_argument("-e", "--epoches", dest="num_epoches",
                     type=int, default=5)
 parser.add_argument("-bs", "--batch_size", dest="batch_size",
                     help="int: batch size for training",
-                    type=int, default=1)
+                    type=int, default=4)
 parser.add_argument("-is", "--imsize", dest="input_size",
                     help="int: input size",
                     type=int, default=256)
@@ -36,21 +37,21 @@ parser.add_argument("-opt", "--optimize", dest="optimize_method",
 
 parser.add_argument("-dp", "--data_path", dest="data_path",
                     help="str: the path to dataset",
-                    type=str, default="../../data/uav/chengdu/")
+                    type=str, default="../../data/uav/usc/1479/output/cropped/")
 parser.add_argument("-mp", "--model_path", dest="model_path",
                     help="str: the path to load and save model",
-                    type=str, default="./Focuser-0000.params")
+                    type=str, default="./Focuser")
 parser.add_argument("-tp", "--test_path", dest="test_path",
                     help="str: the path to your test img",
                     type=str, default="../../data/uav/usc/1479/video1479.avi")
 args = parser.parse_args()
 
 
-def load_data_uav(data_dir = '../data/uav', batch_size=4, edge_size=256):
+def load_data_uav(data_dir='../data/uav', batch_size=4, edge_size=256):
     # _download_pikachu(data_dir)
     train_iter = image.ImageDetIter(
         path_imgrec=os.path.join(data_dir, 'train.rec'),
-        path_imgidx = os.path.join(data_dir, 'train.idx'),
+        path_imgidx=os.path.join(data_dir, 'train.idx'),
         batch_size=batch_size,
         data_shape=(3, edge_size, edge_size),  # 输出图像的形状
         shuffle=True,  # 以随机顺序读取数据集
@@ -63,21 +64,21 @@ def load_data_uav(data_dir = '../data/uav', batch_size=4, edge_size=256):
 
 
 basenet = resnet50.ResNet50(params=resnet50.params, IF_DENSE=False)
-basenet = VGG.BaseNetwork(IF_TINY=False)
+basenet = VGG.BaseNetwork(IF_TINY=True)
 net = nn.Sequential()
 net.add(
     basenet,
     FocusBranch()
 )
-net.initialize(ctx = mx.gpu())
-
+net.initialize(ctx=mx.gpu())
 
 batch_size, edge_size = args.batch_size, args.input_size
 train_iter, val_iter = load_data_uav(args.data_path, batch_size, edge_size)
 batch = train_iter.next()
 
 trainer = mx.gluon.Trainer(net.collect_params(), args.optimize_method,
-{'learning_rate': args.learning_rate, 'wd': 5e-4})
+                           {'learning_rate': args.learning_rate, 'wd': 5e-4})
+
 
 def lstlbl2bbox(lbls, IF_COCO=False, orig_size=None):
     """
@@ -85,21 +86,23 @@ def lstlbl2bbox(lbls, IF_COCO=False, orig_size=None):
     :param lbls: [lbl, xmin, ymin, xmax, ymax]
     :return:
     """
-    xxyy = lbls.asnumpy()[:, 0, :][:, 1:] # miniminmaxmax
+    xxyy = lbls.asnumpy()[:, :, 1:]  # miniminmaxmax
     ## for tuple
     # xxyy[:, 0] *= orig_size[0]
     # xxyy[:, 1] *= orig_size[1]
     # xxyy[:, 2] *= orig_size[0]
     # xxyy[:, 3] *= orig_size[1]
     xxyy *= orig_size
-    if IF_COCO: #cvt to minminwidthheight
+    if IF_COCO:  # cvt to minminwidthheight
         xywh = xxyy.copy()
-        xywh[:, 2] = -xxyy[:, 0] + xxyy[:, 2]
-        xywh[:, 3] = -xxyy[:, 1] + xxyy[:, 3]
+        xywh[:, :, 2] = -xxyy[:, :, 0] + xxyy[:, :, 2]
+        xywh[:, :, 3] = -xxyy[:, :, 1] + xxyy[:, :, 3]
         return xywh
     else:
         return xxyy
 
+
+cls_loss = gloss.SoftmaxCrossEntropyLoss()
 
 if args.load:
     net.load_parameters(args.model_path)
@@ -107,6 +110,8 @@ else:
     for epoch in range(args.num_epoches):
         train_iter.reset()  # reset data iterator to read-in images from beginning
         start = time.time()
+        err = 0;
+        m = 0
         for batch in train_iter:
             X = batch.data[0].as_in_context(mx.gpu())
             Y = batch.label[0].as_in_context(mx.gpu())
@@ -115,15 +120,21 @@ else:
                 # generate anchors and generate bboxes
                 fmap_genned = net(X)
 
-                lbls = affine_fmap2gt(fmap_size=(fmap_genned.shape[-1], fmap_genned.shape[-2]),
-                                      input_size=[args.input_size]*2,
-                                      gts = gts,
-                                      lthres = 9**2, rthres = 64**2)
-                # plt.imshow(cv.resize(lbls, (edge_size, edge_size))*nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3)
-                # plt.show()
+                lbls = affine_fmap2gt(fmap_size=fmap_genned.shape,
+                                      input_size=[edge_size] * 2,
+                                      gts=gts,
+                                      lthres=9 ** 2, rthres=64 ** 2)
+                plt.imshow(
+                    cv.resize(lbls[0, 0, :, :], (edge_size, edge_size)) * nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3)
+                plt.show()
                 l = fmap_lossfunc(fmap_genned, nd.array(lbls, ctx=mx.gpu()))
+
             l.backward()
+            err += l
+            m += 1
             trainer.step(batch_size)
-        print("Round %d"%epoch)
+        err /= m
+        print("Round %d / %d, err %3.3f, cnt %3.3f" %
+              (epoch + 1, args.num_epoches, err.asscalar(), time.time() - start))
         if (epoch + 1) % 5 == 0:
             net.save_parameters('Focuser')

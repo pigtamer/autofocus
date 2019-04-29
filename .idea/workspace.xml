@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="286c8353-9499-4b59-8dc5-a1e9a77866f1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chips/Focuser" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/chips/focus_branch.py" beforeDir="false" afterPath="$PROJECT_DIR$/chips/focus_branch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symbols/resnet50.py" beforeDir="false" afterPath="$PROJECT_DIR$/symbols/resnet50.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chips/test_module_fb.py" beforeDir="false" afterPath="$PROJECT_DIR$/chips/test_module_fb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symbols/VGG.py" beforeDir="false" afterPath="$PROJECT_DIR$/symbols/VGG.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/coco_af.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/coco_af.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,21 +20,9 @@
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/main.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="198">
-                  <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/symbols/finetune.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="72">
+                <state>
                   <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
@@ -53,8 +43,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/symbols/resnet50.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="267">
-                  <caret line="58" column="37" lean-forward="true" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
+                <state relative-caret-position="-1353">
+                  <caret line="58" column="37" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -65,20 +55,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/symbols/resnet50_hybrid.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="799">
-                  <caret line="132" column="21" selection-start-line="132" selection-start-column="21" selection-end-line="132" selection-end-column="21" />
-                  <folding>
-                    <element signature="e#0#31#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/chips/focus_branch.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="396">
-                  <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+                <state relative-caret-position="-439">
+                  <caret line="118" column="42" selection-start-line="118" selection-start-column="42" selection-end-line="118" selection-end-column="42" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -89,9 +67,11 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/chips/test_module_fb.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
-                  <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-                  <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+                <state relative-caret-position="222">
+                  <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+                  <folding>
+                    <element signature="e#0#31#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -99,29 +79,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/symbols/VGG.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="411">
-                  <caret line="35" column="71" selection-start-line="35" selection-start-column="71" selection-end-line="35" selection-end-column="71" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/matplotlib/image.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="192">
-                  <caret line="637" selection-start-line="637" selection-end-line="637" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/utils/utils.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="18">
-                  <caret line="2" selection-start-line="2" selection-end-line="2" />
+                <state relative-caret-position="129">
+                  <caret line="51" column="67" selection-start-line="51" selection-start-column="67" selection-end-line="51" selection-end-column="67" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -136,8 +95,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/chips/focus_branch.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="371">
-                  <caret line="57" column="15" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
+                <state relative-caret-position="273">
+                  <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -148,8 +107,11 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/utils/coco_af.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="108">
-                  <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+                <state relative-caret-position="237">
+                  <caret line="120" column="26" lean-forward="true" selection-start-line="120" selection-start-column="26" selection-end-line="120" selection-end-column="26" />
+                  <folding>
+                    <element signature="e#80#113#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -207,10 +169,10 @@
         <option value="$PROJECT_DIR$/symbols/resnet50_hyb.py" />
         <option value="$PROJECT_DIR$/symbols/resnet50_hybrid.py" />
         <option value="$PROJECT_DIR$/symbols/finetune.py" />
-        <option value="$PROJECT_DIR$/chips/focus_branch.py" />
         <option value="$PROJECT_DIR$/symbols/resnet50.py" />
-        <option value="$PROJECT_DIR$/utils/coco_af.py" />
         <option value="$PROJECT_DIR$/symbols/VGG.py" />
+        <option value="$PROJECT_DIR$/chips/focus_branch.py" />
+        <option value="$PROJECT_DIR$/utils/coco_af.py" />
         <option value="$PROJECT_DIR$/chips/test_module_fb.py" />
       </list>
     </option>
@@ -398,15 +360,15 @@
       <item itemvalue="Python.main" />
       <item itemvalue="Python.coco_af" />
       <item itemvalue="Python.finetune" />
+      <item itemvalue="Python.test_module_fb" />
       <item itemvalue="Python tests.Nosetests for focus_branch.test" />
       <item itemvalue="Python tests.Nosetests in test_module_fb.py" />
-      <item itemvalue="Python.test_module_fb" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.test_module_fb" />
-        <item itemvalue="Python tests.Nosetests in test_module_fb.py" />
         <item itemvalue="Python tests.Nosetests for focus_branch.test" />
+        <item itemvalue="Python tests.Nosetests in test_module_fb.py" />
         <item itemvalue="Python.coco_af" />
         <item itemvalue="Python.finetune" />
       </list>
@@ -426,18 +388,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Nosetests_in_resnet50_py - 2019.04.16 at 10h 02m 36s.xml">
-      <configuration name="Nosetests in resnet50.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_for_focus_branch_test - 2019.04.23 at 10h 27m 42s.xml">
-      <configuration name="Nosetests for focus_branch.test" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_for_focus_branch_test - 2019.04.23 at 10h 34m 13s.xml">
-      <configuration name="Nosetests for focus_branch.test" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_for_focus_branch_test - 2019.04.28 at 18h 59m 53s.xml">
-      <configuration name="Nosetests for focus_branch.test" configurationId="tests" />
-    </history-entry>
     <history-entry file="Nosetests_for_focus_branch_test - 2019.04.28 at 19h 00m 18s.xml">
       <configuration name="Nosetests for focus_branch.test" configurationId="tests" />
     </history-entry>
@@ -455,6 +405,18 @@
     </history-entry>
     <history-entry file="Nosetests_in_test_module_fb_py - 2019.04.28 at 19h 33m 58s.xml">
       <configuration name="Nosetests in test_module_fb.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_for_focus_branch_test - 2019.04.29 at 10h 24m 39s.xml">
+      <configuration name="Nosetests for focus_branch.test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_for_focus_branch_test - 2019.04.29 at 10h 31m 12s.xml">
+      <configuration name="Nosetests for focus_branch.test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_for_focus_branch_test - 2019.04.29 at 10h 31m 27s.xml">
+      <configuration name="Nosetests for focus_branch.test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_for_focus_branch_test - 2019.04.29 at 10h 31m 38s.xml">
+      <configuration name="Nosetests for focus_branch.test" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -527,6 +489,21 @@
           <line>25</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/chips/focus_branch.py</url>
+          <line>64</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/utils/coco_af.py</url>
+          <line>136</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/utils/coco_af.py</url>
+          <line>135</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -546,13 +523,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/symbols/resnet50_hyb.py" />
-    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/mxnet/gluon/block.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="424" column="31" lean-forward="true" selection-start-line="424" selection-start-column="27" selection-end-line="424" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/gluoncv/data/transforms/presets/rcnn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -564,6 +534,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
           <caret line="274" column="25" lean-forward="true" selection-start-line="274" selection-start-column="24" selection-end-line="274" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/IPython/core/interactiveshell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="3293" column="46" selection-start-line="3293" selection-start-column="46" selection-end-line="3293" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -579,7 +556,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/symbols/finetune.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
+        <state>
           <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
@@ -594,9 +571,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/matplotlib/image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10980">
+          <caret line="637" selection-start-line="637" selection-end-line="637" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symbols/resnet50.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1353">
+          <caret line="58" column="37" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
+        <state relative-caret-position="36">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
@@ -604,51 +598,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/IPython/core/interactiveshell.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="3293" column="46" selection-start-line="3293" selection-start-column="46" selection-end-line="3293" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/matplotlib/image.py">
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/mxnet/gluon/block.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
-          <caret line="637" selection-start-line="637" selection-end-line="637" />
+          <caret line="399" selection-start-line="399" selection-end-line="399" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/symbols/resnet50_hybrid.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="132" column="21" selection-start-line="132" selection-start-column="21" selection-end-line="132" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chips/focus_branch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/coco_af.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symbols/resnet50.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="58" column="37" lean-forward="true" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
+        <state relative-caret-position="-439">
+          <caret line="118" column="42" selection-start-line="118" selection-start-column="42" selection-end-line="118" selection-end-column="42" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -657,19 +617,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/symbols/VGG.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="35" column="71" selection-start-line="35" selection-start-column="71" selection-end-line="35" selection-end-column="71" />
+        <state relative-caret-position="129">
+          <caret line="51" column="67" selection-start-line="51" selection-start-column="67" selection-end-line="51" selection-end-column="67" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/mxnet/gluon/loss.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="314" selection-start-line="314" selection-end-line="314" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/mxnet/_ctypes/ndarray.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/mxnet/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="240" column="44" lean-forward="true" selection-start-line="240" selection-start-column="44" selection-end-line="240" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chips/focus_branch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/coco_af.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="120" column="26" lean-forward="true" selection-start-line="120" selection-start-column="26" selection-end-line="120" selection-end-column="26" />
+          <folding>
+            <element signature="e#80#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/chips/test_module_fb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        <state relative-caret-position="222">
+          <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
