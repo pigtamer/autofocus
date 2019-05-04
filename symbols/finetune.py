@@ -12,6 +12,7 @@ from chips import focus_branch as foc
 #     net.__delattr__("flat")
 #     net.flat = nn.Activation('relu')
 #     net.fc  = nn.BatchNorm()
+# net = model_zoo.faster_rcnn_resnet50_v1b_coco(pretrained=True, ctx = mx.gpu())
 
 def test(ctx=mx.cpu()):
     net = model_zoo.faster_rcnn_fpn_bn_resnet50_v1b_coco(pretrained=True, ctx = ctx)

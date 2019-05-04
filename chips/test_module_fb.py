@@ -24,21 +24,21 @@ parser.add_argument("-e", "--epoches", dest="num_epoches",
                     type=int, default=20)
 parser.add_argument("-bs", "--batch_size", dest="batch_size",
                     help="int: batch size for training",
-                    type=int, default=8)
+                    type=int, default=1)
 parser.add_argument("-is", "--imsize", dest="input_size",
                     help="int: input size",
-                    type=int, default=256)
+                    type=int, default=512)
 
 parser.add_argument("-lr", "--learning_rate", dest="learning_rate",
                     help="float: learning rate of optimization process",
-                    type=float, default=0.005)
+                    type=float, default=0.001)
 parser.add_argument("-opt", "--optimize", dest="optimize_method",
                     help="optimization method",
                     type=str, default="sgd")
 
 parser.add_argument("-dp", "--data_path", dest="data_path",
                     help="str: the path to dataset",
-                    type=str, default="../../data/uav/chengdu/")
+                    type=str, default="../../data/uav/usc/1479/raw/")
 # ../../data/uav/usc/1479/output/cropped/
 parser.add_argument("-mp", "--model_path", dest="model_path",
                     help="str: the path to load and save model",
@@ -49,16 +49,18 @@ parser.add_argument("-tp", "--test_path", dest="test_path",
 args = parser.parse_args()
 
 
-def tmptest(fname, isize, net):
-    frame = cv.imread(args.data_path + fname)
+def focustest(fname, isize, net):
+    frame = cv.imread(fname)
     img = nd.array(frame)
     feature = image.imresize(img, isize, isize).astype('float32')
     X = feature.transpose((2, 0, 1)).expand_dims(axis=0)
     res = net(X.as_in_context(mx.gpu()))
-    plt.imshow(res.asnumpy()[0, 0, :, :]);
-    plt.figure()
+    plt.subplot(121)
+    plt.imshow(res.asnumpy()[0, 0, :, :]);plt.title("Focus Pixels")
+    plt.subplot(122)
     plt.imshow(cv.resize(res.asnumpy()[0, 0, :, :], (isize, isize))
-               * nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3);
+               * nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3, cmap='gray');
+    plt.title("Heatmap")
     plt.show()
 
 
@@ -86,6 +88,15 @@ def load_data_uav(data_dir='../data/uav', batch_size=4, edge_size=256):
 #     FocusBranch()
 # )
 # net.initialize(ctx=mx.gpu())
+
+
+# prenet = model_zoo.faster_rcnn_resnet50_v1b_coco(pretrained=True, ctx = mx.gpu())
+# basenet = nn.HybridSequential()
+# basenet.add(
+#     prenet.features,
+#     prenet.top_features
+# )
+
 prenet = model_zoo.resnet50_v1b(pretrained=True, ctx=mx.gpu())
 basenet = nn.HybridSequential()
 for layers in prenet._children:
@@ -119,6 +130,7 @@ def err_eval(bbox_preds, bbox_labels):
 if args.load:
     net[1].load_parameters(args.model_path)
 else:
+    lerr, lcnt = [], []
     for epoch in range(args.num_epoches):
         train_iter.reset()  # reset data iterator to read-in images from beginning
         start = time.time()
@@ -147,7 +159,11 @@ else:
             m += fmap_genned.size
             trainer.step(batch_size)
         err /= m
+        lcnt.append(time.time() - start); lerr.append(err)
+
         print("Round %d / %d, err %3.3f, cnt %3.3f" %
               (epoch + 1, args.num_epoches, err, time.time() - start))
+
         if (epoch + 1) % 5 == 0:
             net.save_parameters('Focuser')
+    print(lcnt, "\n", lerr)
