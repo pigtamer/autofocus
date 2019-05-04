@@ -9,6 +9,7 @@ from chips.focus_branch import *
 from utils.coco_af import *
 import os
 import cv2 as cv
+from gluoncv import model_zoo, data, utils
 
 # parsing cli arguments
 parser = argparse.ArgumentParser()
@@ -20,24 +21,25 @@ parser.add_argument("-b", "--base", dest="base",
                     type=int, default=0)
 parser.add_argument("-e", "--epoches", dest="num_epoches",
                     help="int: trainig epoches",
-                    type=int, default=5)
+                    type=int, default=20)
 parser.add_argument("-bs", "--batch_size", dest="batch_size",
                     help="int: batch size for training",
-                    type=int, default=4)
+                    type=int, default=8)
 parser.add_argument("-is", "--imsize", dest="input_size",
                     help="int: input size",
                     type=int, default=256)
 
 parser.add_argument("-lr", "--learning_rate", dest="learning_rate",
                     help="float: learning rate of optimization process",
-                    type=float, default=0.2)
+                    type=float, default=0.005)
 parser.add_argument("-opt", "--optimize", dest="optimize_method",
                     help="optimization method",
                     type=str, default="sgd")
 
 parser.add_argument("-dp", "--data_path", dest="data_path",
                     help="str: the path to dataset",
-                    type=str, default="../../data/uav/usc/1479/output/cropped/")
+                    type=str, default="../../data/uav/chengdu/")
+# ../../data/uav/usc/1479/output/cropped/
 parser.add_argument("-mp", "--model_path", dest="model_path",
                     help="str: the path to load and save model",
                     type=str, default="./Focuser")
@@ -45,6 +47,19 @@ parser.add_argument("-tp", "--test_path", dest="test_path",
                     help="str: the path to your test img",
                     type=str, default="../../data/uav/usc/1479/video1479.avi")
 args = parser.parse_args()
+
+
+def tmptest(fname, isize, net):
+    frame = cv.imread(args.data_path + fname)
+    img = nd.array(frame)
+    feature = image.imresize(img, isize, isize).astype('float32')
+    X = feature.transpose((2, 0, 1)).expand_dims(axis=0)
+    res = net(X.as_in_context(mx.gpu()))
+    plt.imshow(res.asnumpy()[0, 0, :, :]);
+    plt.figure()
+    plt.imshow(cv.resize(res.asnumpy()[0, 0, :, :], (isize, isize))
+               * nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3);
+    plt.show()
 
 
 def load_data_uav(data_dir='../data/uav', batch_size=4, edge_size=256):
@@ -63,27 +78,46 @@ def load_data_uav(data_dir='../data/uav', batch_size=4, edge_size=256):
     return train_iter, val_iter
 
 
-basenet = resnet50.ResNet50(params=resnet50.params, IF_DENSE=False)
-basenet = VGG.BaseNetwork(IF_TINY=True)
-net = nn.Sequential()
+# basenet = resnet50.ResNet50(params=resnet50.params, IF_DENSE=False)
+# basenet = VGG.BaseNetwork(IF_TINY=False)
+# net = nn.Sequential()
+# net.add(
+#     basenet,
+#     FocusBranch()
+# )
+# net.initialize(ctx=mx.gpu())
+prenet = model_zoo.resnet50_v1b(pretrained=True, ctx=mx.gpu())
+basenet = nn.HybridSequential()
+for layers in prenet._children:
+    basenet.add(prenet._children[layers])
+basenet = basenet[0:-3]
+
+net = nn.HybridSequential()
 net.add(
     basenet,
-    FocusBranch()
+    HybridFocusBranch()
 )
-net.initialize(ctx=mx.gpu())
+net[1].initialize(ctx=mx.gpu())
+net[1].collect_params().setattr('lr_mult', 10)
+net.hybridize()
+
 
 batch_size, edge_size = args.batch_size, args.input_size
 train_iter, val_iter = load_data_uav(args.data_path, batch_size, edge_size)
 batch = train_iter.next()
 
 trainer = mx.gluon.Trainer(net.collect_params(), args.optimize_method,
-                           {'learning_rate': args.learning_rate, 'wd': 5e-4})
+                           {'learning_rate': args.learning_rate, 'wd': 0.001})
+
+cls_loss = gloss.L1Loss()
 
 
-cls_loss = gloss.SoftmaxCrossEntropyLoss()
+def err_eval(bbox_preds, bbox_labels):
+    return (bbox_labels - bbox_preds).abs().sum().asscalar()
+
 
 if args.load:
-    net.load_parameters(args.model_path)
+    net[1].load_parameters(args.model_path)
 else:
     for epoch in range(args.num_epoches):
         train_iter.reset()  # reset data iterator to read-in images from beginning
@@ -105,14 +139,15 @@ else:
                 # plt.imshow(
                 #     cv.resize(lbls[0, 0, :, :], (edge_size, edge_size)) * nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3)
                 # plt.show()
-                l = fmap_lossfunc(fmap_genned, nd.array(lbls, ctx=mx.gpu()))
-
+                l = cls_loss(fmap_genned, nd.array(lbls, ctx=mx.gpu()))
+                if nd.sum(nd.array(lbls != 0)) == 0:
+                    raise Exception("ERROR in labels.")
             l.backward()
-            err += l
-            m += 1
+            err += err_eval(fmap_genned, nd.array(lbls, ctx=mx.gpu()))
+            m += fmap_genned.size
             trainer.step(batch_size)
         err /= m
         print("Round %d / %d, err %3.3f, cnt %3.3f" %
-              (epoch + 1, args.num_epoches, err.asscalar(), time.time() - start))
+              (epoch + 1, args.num_epoches, err, time.time() - start))
         if (epoch + 1) % 5 == 0:
             net.save_parameters('Focuser')

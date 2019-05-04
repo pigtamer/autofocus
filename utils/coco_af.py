@@ -114,7 +114,6 @@ def affine_fmap2gt(fmap_size, input_size, gts, lthres, rthres):
     """
 
     out_lbl = np.zeros(fmap_size)  # (b, c, y, x)
-    orig_size = input_size
     scal_fact = (input_size[0] / fmap_size[-1], input_size[1] / fmap_size[-2])
     b, c, h, w = fmap_size  # you cannot be too careful. c = 1 in default
     for eb in range(b):
@@ -127,13 +126,11 @@ def affine_fmap2gt(fmap_size, input_size, gts, lthres, rthres):
                     assigned_gt = gt[np.argmax(affined_ious), :]  # [x, y, w, h]
                     gt_area = assigned_gt[2] * assigned_gt[3]
                     if gt_area > lthres and gt_area < rthres:
-                        out_lbl[eb, :, ew, eh] = 1
+                        out_lbl[eb, :, ew, eh] = 1.
                     else:
-                        out_lbl[eb, :, ew, eh] = -1
+                        out_lbl[eb, :, ew, eh] = -1.
                 else:
-                    out_lbl[eb, :, ew, eh] = 0
-        if nd.sum(nd.array(out_lbl !=0)) == 0:
-            print("fuck")
+                    out_lbl[eb, :, ew, eh] = 0.
     return out_lbl
 
 

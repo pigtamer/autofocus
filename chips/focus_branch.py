@@ -17,13 +17,13 @@ class FocusBranch(nn.Block):
         self.net = nn.Sequential()
         self.net.add(
             nn.Conv2D(channels=256, kernel_size=3, strides=1, padding=1),
-            nn.Activation(activation='relu'),
-            nn.Conv2D(channels=256, kernel_size=1, strides=1, padding=0),
-            nn.Activation(activation='relu'),
-            nn.Conv2D(channels=256, kernel_size=1, strides=1, padding=0),
-            nn.Activation(activation='relu'),
-            nn.Conv2D(channels=1, kernel_size=1, strides=1, padding=0),
-            nn.Activation(activation='relu')
+            nn.Activation(activation='sigmoid'),
+            nn.Conv2D(channels=256, kernel_size=3, strides=1, padding=1),
+            nn.Activation(activation='sigmoid'),
+            nn.MaxPool2D(),
+            # nn.Conv2D(channels=256, kernel_size=1, strides=1, padding=0),
+            # nn.Activation(activation='relu'),
+            nn.Conv2D(channels=1, kernel_size=1, strides=1, padding=0)
         )
 
     def forward(self, x, **kwargs):
@@ -43,13 +43,13 @@ class HybridFocusBranch(nn.HybridBlock):
             nn.Conv2D(channels=256, kernel_size=1, strides=1, padding=0),
             nn.Activation(activation='relu'),
             nn.Conv2D(channels=256, kernel_size=1, strides=1, padding=0),
-            nn.Activation(activation='relu'),
+            nn.Activation(activation='tanh'),
             nn.Conv2D(channels=1, kernel_size=1, strides=1, padding=0)
         )
 
     def hybrid_forward(self, F, x, *args, **kwargs):
         x = self.net(x)
-        x = sym.softmax(x, axis=1)
+        # x = sym.softmax(x, axis=1)
         # res = genChip(x)
         return x
 
