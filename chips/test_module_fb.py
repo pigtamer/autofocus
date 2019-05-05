@@ -49,21 +49,6 @@ parser.add_argument("-tp", "--test_path", dest="test_path",
 args = parser.parse_args()
 
 
-def focustest(fname, isize, net):
-    frame = cv.imread(fname)
-    img = nd.array(frame)
-    feature = image.imresize(img, isize, isize).astype('float32')
-    X = feature.transpose((2, 0, 1)).expand_dims(axis=0)
-    res = net(X.as_in_context(mx.gpu()))
-    plt.subplot(121)
-    plt.imshow(res.asnumpy()[0, 0, :, :]);plt.title("Focus Pixels")
-    plt.subplot(122)
-    plt.imshow(cv.resize(res.asnumpy()[0, 0, :, :], (isize, isize))
-               * nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3, cmap='gray');
-    plt.title("Heatmap")
-    plt.show()
-
-
 def load_data_uav(data_dir='../data/uav', batch_size=4, edge_size=256):
     # _download_pikachu(data_dir)
     train_iter = image.ImageDetIter(
@@ -128,7 +113,8 @@ def err_eval(bbox_preds, bbox_labels):
 
 
 if args.load:
-    net[1].load_parameters(args.model_path)
+    net.load_parameters(args.model_path)
+    # focustest()
 else:
     lerr, lcnt = [], []
     for epoch in range(args.num_epoches):

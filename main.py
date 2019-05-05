@@ -1,5 +1,5 @@
 import mxnet as mx
-from mxnet.gluon import Block, HybridBlock, nn, loss as gloss, data as gdata
+from mxnet.gluon import nn, loss as gloss, data as gdata
 import cv2 as cv, matplotlib.pyplot as plt, sys, os
 
 # TODO:
