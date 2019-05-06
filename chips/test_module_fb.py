@@ -21,17 +21,17 @@ parser.add_argument("-b", "--base", dest="base",
                     type=int, default=0)
 parser.add_argument("-e", "--epoches", dest="num_epoches",
                     help="int: trainig epoches",
-                    type=int, default=20)
+                    type=int, default=50)
 parser.add_argument("-bs", "--batch_size", dest="batch_size",
                     help="int: batch size for training",
-                    type=int, default=1)
+                    type=int, default=8)
 parser.add_argument("-is", "--imsize", dest="input_size",
                     help="int: input size",
-                    type=int, default=512)
+                    type=int, default=256)
 
 parser.add_argument("-lr", "--learning_rate", dest="learning_rate",
                     help="float: learning rate of optimization process",
-                    type=float, default=0.001)
+                    type=float, default=0.01)
 parser.add_argument("-opt", "--optimize", dest="optimize_method",
                     help="optimization method",
                     type=str, default="sgd")
@@ -103,7 +103,7 @@ train_iter, val_iter = load_data_uav(args.data_path, batch_size, edge_size)
 batch = train_iter.next()
 
 trainer = mx.gluon.Trainer(net.collect_params(), args.optimize_method,
-                           {'learning_rate': args.learning_rate, 'wd': 0.001})
+                           {'learning_rate': args.learning_rate, 'wd': 5E-4})
 
 cls_loss = gloss.L1Loss()
 
