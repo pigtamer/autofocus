@@ -15,8 +15,8 @@ from chips import focus_branch as foc
 # net = model_zoo.faster_rcnn_resnet50_v1b_coco(pretrained=True, ctx = mx.gpu())
 
 def test(ctx=mx.cpu()):
-    net = model_zoo.faster_rcnn_fpn_bn_resnet50_v1b_coco(pretrained=True, ctx = ctx)
-    # net = model_zoo.resnet50_v1b(pretrained=True, ctx=ctx)
+    # net = model_zoo.faster_rcnn_fpn_bn_resnet50_v1b_coco(pretrained=True, ctx = ctx)
+    net = model_zoo.resnet50_v1b(pretrained=True, ctx=ctx)
     im_fname = "/home/cunyuan/code/pycharm/data/uav/usc/1479/img/0131.jpg"
     x, orig_img = data.transforms.presets.rcnn.load_test(im_fname)
     x = x.as_in_context(ctx)

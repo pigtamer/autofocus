@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="286c8353-9499-4b59-8dc5-a1e9a77866f1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chips/focus_branch.py" beforeDir="false" afterPath="$PROJECT_DIR$/chips/focus_branch.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chips/test_module_fb.py" beforeDir="false" afterPath="$PROJECT_DIR$/chips/test_module_fb.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/det/.ipynb_checkpoints/dettest-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/det/.ipynb_checkpoints/dettest-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/det/dettest.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/det/dettest.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finetune/finetune.py" beforeDir="false" afterPath="$PROJECT_DIR$/finetune/finetune.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/vott_parse.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/vott_parse.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,11 +21,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/chips/test_module_fb.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="577">
-                  <caret line="141" column="35" selection-start-line="141" selection-start-column="35" selection-end-line="141" selection-end-column="35" />
+                <state relative-caret-position="360">
+                  <caret line="47" column="70" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -31,11 +33,32 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/det/dettest.ipynb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="234">
+                  <caret line="121" column="94" selection-start-line="121" selection-start-column="25" selection-end-line="121" selection-end-column="94" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/finetune/finetune.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="90">
+                  <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+                  <folding>
+                    <element signature="e#0#31#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/utils/vott_parse.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-743">
-                  <caret line="94" column="17" lean-forward="true" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
+                <state relative-caret-position="3546">
+                  <caret line="200" column="43" selection-start-line="200" selection-start-column="43" selection-end-line="200" selection-end-column="43" />
                   <folding>
                     <element signature="e#11#44#0" expanded="true" />
                   </folding>
@@ -71,8 +94,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/chips/focus_branch.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="213">
-                  <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+                <state relative-caret-position="436">
+                  <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="104" selection-end-column="74" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -130,6 +153,7 @@
       <find>input_size</find>
       <find>bbox_eval</find>
       <find>*</find>
+      <find>abs</find>
     </findStrings>
     <replaceStrings>
       <replace>Block</replace>
@@ -159,9 +183,10 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/det/ssd/__init__.py" />
         <option value="$PROJECT_DIR$/det/ssd_module.py" />
-        <option value="$PROJECT_DIR$/chips/test_module_fb.py" />
         <option value="$PROJECT_DIR$/utils/vott_parse.py" />
+        <option value="$PROJECT_DIR$/finetune/finetune.py" />
         <option value="$PROJECT_DIR$/chips/focus_branch.py" />
+        <option value="$PROJECT_DIR$/chips/test_module_fb.py" />
       </list>
     </option>
   </component>
@@ -193,6 +218,11 @@
               <item name="autofocus" type="b2602c69:ProjectViewProjectNode" />
               <item name="autofocus" type="462c0819:PsiDirectoryNode" />
               <item name="det" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="autofocus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="autofocus" type="462c0819:PsiDirectoryNode" />
+              <item name="finetune" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="autofocus" type="b2602c69:ProjectViewProjectNode" />
@@ -236,27 +266,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.test_module_fb">
-    <configuration name="coco_af" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="autofocus" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/coco_af.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="finetune" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="autofocus" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -320,6 +329,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Nosetests for finetune.test" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+      <module name="autofocus" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/finetune" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;finetune.test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Nosetests for focus_branch.test" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <module name="autofocus" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -352,19 +376,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.coco_af" />
       <item itemvalue="Python.finetune" />
       <item itemvalue="Python.test_module_fb" />
       <item itemvalue="Python tests.Nosetests for focus_branch.test" />
       <item itemvalue="Python tests.Nosetests in test_module_fb.py" />
+      <item itemvalue="Python tests.Nosetests for finetune.test" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.test_module_fb" />
+        <item itemvalue="Python tests.Nosetests for finetune.test" />
         <item itemvalue="Python.finetune" />
         <item itemvalue="Python tests.Nosetests for focus_branch.test" />
         <item itemvalue="Python tests.Nosetests in test_module_fb.py" />
-        <item itemvalue="Python.coco_af" />
       </list>
     </recent_temporary>
   </component>
@@ -382,24 +406,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Nosetests_for_focus_branch_test - 2019.04.28 at 19h 00m 18s.xml">
-      <configuration name="Nosetests for focus_branch.test" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_in_test_module_fb_py - 2019.04.28 at 19h 06m 14s.xml">
-      <configuration name="Nosetests in test_module_fb.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_in_test_module_fb_py - 2019.04.28 at 19h 06m 55s.xml">
-      <configuration name="Nosetests in test_module_fb.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_in_test_module_fb_py - 2019.04.28 at 19h 07m 06s.xml">
-      <configuration name="Nosetests in test_module_fb.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_in_test_module_fb_py - 2019.04.28 at 19h 33m 54s.xml">
-      <configuration name="Nosetests in test_module_fb.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_in_test_module_fb_py - 2019.04.28 at 19h 33m 58s.xml">
-      <configuration name="Nosetests in test_module_fb.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Nosetests_for_focus_branch_test - 2019.04.29 at 10h 24m 39s.xml">
       <configuration name="Nosetests for focus_branch.test" configurationId="tests" />
     </history-entry>
@@ -411,6 +417,24 @@
     </history-entry>
     <history-entry file="Nosetests_for_focus_branch_test - 2019.04.29 at 10h 31m 38s.xml">
       <configuration name="Nosetests for focus_branch.test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_for_finetune_test - 2019.05.07 at 16h 10m 47s.xml">
+      <configuration name="Nosetests for finetune.test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_for_finetune_test - 2019.05.07 at 16h 11m 13s.xml">
+      <configuration name="Nosetests for finetune.test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_for_finetune_test - 2019.05.07 at 17h 47m 35s.xml">
+      <configuration name="Nosetests for finetune.test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_for_finetune_test - 2019.05.07 at 23h 12m 45s.xml">
+      <configuration name="Nosetests for finetune.test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_for_finetune_test - 2019.05.08 at 10h 13m 57s.xml">
+      <configuration name="Nosetests for finetune.test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_for_finetune_test - 2019.05.08 at 10h 16m 19s.xml">
+      <configuration name="Nosetests for finetune.test" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -431,13 +455,13 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3667007" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3176711" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3667007" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.340143" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32925585" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3299285" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.30132788" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.29213482" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3299285" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -520,23 +544,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/chips/test_module_fb.py</url>
-          <line>95</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/chips/test_module_fb.py</url>
           <line>100</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/chips/test_module_fb.py</url>
-          <line>90</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/chips/test_module_fb.py</url>
           <line>114</line>
           <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/finetune/finetune.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -680,6 +699,26 @@
         <state relative-caret-position="-3240" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/finetune/finetune.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/vott_parse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3546">
+          <caret line="200" column="43" selection-start-line="200" selection-start-column="43" selection-end-line="200" selection-end-column="43" />
+          <folding>
+            <element signature="e#11#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -711,30 +750,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chips/test_module_fb.py">
+    <entry file="file://$PROJECT_DIR$/chips/focus_branch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="141" column="35" selection-start-line="141" selection-start-column="35" selection-end-line="141" selection-end-column="35" />
+        <state relative-caret-position="436">
+          <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="104" selection-end-column="74" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/vott_parse.py">
+    <entry file="file://$PROJECT_DIR$/det/dettest.ipynb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-743">
-          <caret line="94" column="17" lean-forward="true" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
-          <folding>
-            <element signature="e#11#44#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="234">
+          <caret line="121" column="94" selection-start-line="121" selection-start-column="25" selection-end-line="121" selection-end-column="94" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chips/focus_branch.py">
+    <entry file="file://$PROJECT_DIR$/chips/test_module_fb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        <state relative-caret-position="360">
+          <caret line="47" column="70" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>

@@ -174,6 +174,29 @@ def labelj2lst(data_path, IF_CROP=False, dst_size=None):
     print("%s labeled images processed." % idx)
 
 
+def gen_negapos(data_path):
+    if not os.path.exists(data_path + "np"):
+        os.makedirs(data_path + "np")
+        os.makedirs(data_path + "np/pos")
+        os.makedirs(data_path + "np/nega")
+
+    with open('img.json', 'r') as f_vott_json:
+        data_dict = json.load(f_vott_json)
+        idx = 0
+        for frame_name in data_dict["frames"]:
+            if data_dict["frames"]["%s" % frame_name] != []:
+                each_frame = cv.imread("./img/%s" % frame_name)
+                xmin = (data_dict["frames"]["%s" % frame_name][0]["x1"])
+                ymin = (data_dict["frames"]["%s" % frame_name][0]["y1"])
+                xmax = (data_dict["frames"]["%s" % frame_name][0]["x2"])
+                ymax = (data_dict["frames"]["%s" % frame_name][0]["y2"])
+            pos_patch = each_frame[xmin:xmax, ymin:ymax]
+            nega_patch = each_frame.copy()
+            nega_patch[xmin:xmax, ymin:ymax] = 0
+            cv.imwrite(data_path + "np/pos/p%d.jpg" % idx, pos_patch)
+            cv.imwrite(data_path + "np/nega/n%d.jpg" % idx, nega_patch)
+            idx += 1
+
 def test():
     labelj2lst("output/", True, (640, 480))
     os.system("python3 im2rec.py output/cropped/train.lst ./ --pack-label")

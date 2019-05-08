@@ -15,7 +15,7 @@ from gluoncv import model_zoo, data, utils
 parser = argparse.ArgumentParser()
 parser.add_argument("-l", "--load", dest="load",
                     help="bool: load model to directly infer rather than training",
-                    type=int, default=0)
+                    type=int, default=1)
 parser.add_argument("-b", "--base", dest="base",
                     help="bool: using additional base network",
                     type=int, default=0)
@@ -42,10 +42,10 @@ parser.add_argument("-dp", "--data_path", dest="data_path",
 # ../../data/uav/usc/1479/output/cropped/
 parser.add_argument("-mp", "--model_path", dest="model_path",
                     help="str: the path to load and save model",
-                    type=str, default="./Focuser")
+                    type=str, default="/home/cunyuan/code/pycharm/params/autofocus/")
 parser.add_argument("-tp", "--test_path", dest="test_path",
                     help="str: the path to your test img",
-                    type=str, default="../../data/uav/usc/1479/video1479.avi")
+                    type=str, default="../../data/uav/dji_island_4.mp4")
 args = parser.parse_args()
 
 
@@ -113,7 +113,7 @@ def err_eval(bbox_preds, bbox_labels):
 
 
 if args.load:
-    net.load_parameters(args.model_path)
+    net.load_parameters(args.model_path + "Focuser-is256e50bs08-pResNet50-dUSC1479raw-lr0.01x10")
     # focustest()
 else:
     lerr, lcnt = [], []
@@ -153,3 +153,26 @@ else:
         if (epoch + 1) % 5 == 0:
             net.save_parameters('Focuser')
     print(lcnt, "\n", lerr)
+
+cap = cv.VideoCapture(args.test_path)
+rd = 0
+isize = 1024
+while True:
+    ret, frame = cap.read()
+    img = nd.array(frame)
+    feature = image.imresize(img, isize, isize).astype('float32')
+    X = feature.transpose((2, 0, 1)).expand_dims(axis=0)
+
+    countt = time.time()
+
+    fmap = net(X.as_in_context(mx.gpu()))
+    conn = calcConnect(fmap[0, 0, :, :].asnumpy(), gau_sigma=0,
+                       thres_ratio=0.9, conn=1, IF_ABS=True)
+    plt.imshow(cv.resize(conn[1].astype(np.float32), (isize, isize))
+               * nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3, cmap="gray")
+    countt = time.time() - countt
+    print("# %d     SPF: %3.2f" % (rd, countt))
+    cv.imshow("focus", cv.resize(cv.resize(conn[1].astype(np.float32), (isize, isize))
+               * nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3 / 255, (1280,720)))
+    cv.waitKey(10);
+    rd += 1
