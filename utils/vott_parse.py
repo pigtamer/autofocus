@@ -55,7 +55,7 @@ def cropToROI(img, img_size_y_x, roi, dst_size):
 
     if x_lmargin > x_rmargin:
         if x_rmargin != 0:
-            dx_r = random.randint(0, min(x_rmargin, W_dst - w))
+            dx_r = random.randint(0, min(x_rmargin, abs(W_dst - w)))
         else:
             dx_r = 0
         xmax_dst = xmax + dx_r
@@ -63,7 +63,7 @@ def cropToROI(img, img_size_y_x, roi, dst_size):
 
     else:
         if x_lmargin != 0:
-            dx_l = random.randint(0, min(x_lmargin, W_dst - w))
+            dx_l = random.randint(0, min(x_lmargin, abs(W_dst - w)))
         else:
             dx_l = 0
         xmin_dst = xmin - dx_l
@@ -71,14 +71,14 @@ def cropToROI(img, img_size_y_x, roi, dst_size):
 
     if y_lmargin > y_rmargin:
         if y_rmargin != 0:
-            dy_r = random.randint(0, min(y_rmargin, H_dst - h))
+            dy_r = random.randint(0, min(y_rmargin, abs(H_dst - h)))
         else:
             dy_r = 0
         ymax_dst = ymax + dy_r
         ymin_dst = ymax_dst - H_dst
     else:
         if y_lmargin != 0:
-            dy_l = random.randint(0, min(y_lmargin, H_dst - h))
+            dy_l = random.randint(0, min(y_lmargin, abs(H_dst - h)))
         else:
             dy_l = 0
         ymin_dst = ymin - dy_l
@@ -86,10 +86,11 @@ def cropToROI(img, img_size_y_x, roi, dst_size):
 
     xmin_dst, ymin_dst, xmax_dst, ymax_dst = \
         int(xmin_dst), int(ymin_dst), int(xmax_dst), int(ymax_dst)
-    dst_img = img[ymin_dst:ymax_dst, xmin_dst:xmax_dst]
+    dst_img = img[:, ymin_dst:ymax_dst, xmin_dst:xmax_dst]
     print(ymin_dst, ymax_dst, xmin_dst, xmax_dst)
     new_loc = [xmin - xmin_dst, ymin - ymin_dst, xmax - xmin_dst, ymax - ymin_dst]
-    return (dst_img, new_loc)
+    dst_coord = [xmin_dst, ymin_dst, xmax_dst, ymax_dst]
+    return (dst_img, dst_coord, new_loc)
 
 
 def labelj2xml():
@@ -141,9 +142,9 @@ def labelj2lst(data_path, IF_CROP=False, dst_size=None):
 
                 if IF_CROP:
                     img_name = data_path + "cropped/" + frame_name
-                    each_frame, new_roi = cropToROI(each_frame, (each_frame.shape[1], each_frame.shape[0]),
-                                                    (xmin, ymin, xmax, ymax),
-                                                    dst_size)
+                    each_frame, _, new_roi = cropToROI(each_frame, (each_frame.shape[1], each_frame.shape[0]),
+                                                       (xmin, ymin, xmax, ymax),
+                                                       dst_size)
                     xmin, ymin, xmax, ymax = new_roi
                     width, height = dst_size
 
@@ -196,6 +197,7 @@ def gen_negapos(data_path):
             cv.imwrite(data_path + "np/pos/p%d.jpg" % idx, pos_patch)
             cv.imwrite(data_path + "np/nega/n%d.jpg" % idx, nega_patch)
             idx += 1
+
 
 def test():
     labelj2lst("output/", True, (640, 480))

@@ -34,8 +34,7 @@ class LightSSD(nn.HybridBlock):
         super(LightSSD, self).__init__(**kwargs)
         self.num_classes = num_cls
         self._IF_TINY = IF_TINY
-        if not self._IF_TINY:
-            self.BaseBlk = BaseNetwork(False)
+        self.BaseBlk = BaseNetwork(True)
         self.blk1 = nn.HybridSequential()
         self.blk1.add(nn.Conv2D(channels=1024, kernel_size=3, strides=1, padding=0),
                       nn.Conv2D(channels=1024, kernel_size=1, strides=1, padding=1),
@@ -87,8 +86,8 @@ class LightSSD(nn.HybridBlock):
         self.reg5 = genBBoxRegressor(num_ach)
 
     def hybrid_forward(self, F, x):
-        if not self._IF_TINY:
-            x = self.BaseBlk(x)
+        x = self.BaseBlk(x)
+
         anchors, cls_preds, bbox_preds = [None] * 5, [None] * 5, [None] * 5
         for k in range(5):
             if k == 0:

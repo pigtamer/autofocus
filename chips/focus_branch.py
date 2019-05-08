@@ -42,7 +42,8 @@ def genChip(frame, connect_props, dst_size):
     conn_bboxes, conn_lbls = connect_props
     Wf, Hf = frame.shape[-1], frame.shape[-2]
     wf, hf = conn_lbls.shape[-1], conn_lbls.shape[-2]
-    l_chips, l_new_loc = [None] * len(conn_bboxes), [None] * len(conn_bboxes)
+    l_chips, l_new_loc, l_chip_coord = [None] * len(conn_bboxes), \
+                                       [None] * len(conn_bboxes), [None] * len(conn_bboxes)
     for k in range(len(conn_bboxes)):
         x1, y1, x2, y2 = conn_bboxes[k]
         bbox = np.array(conn_bboxes[k])
@@ -51,9 +52,9 @@ def genChip(frame, connect_props, dst_size):
         bbox[2] = int(Wf / wf) * y2
         bbox[3] = int(Hf / hf) * x2
         print(bbox)
-        l_chips[k], l_new_loc[k] = cropToROI(img=frame, img_size_y_x=(Hf, Wf),
+        l_chips[k], l_chip_coord[k], l_new_loc[k] = cropToROI(img=frame, img_size_y_x=(Hf, Wf),
                                              roi=bbox, dst_size=dst_size)
-    return (l_chips, l_new_loc)
+    return (l_chips, l_chip_coord, l_new_loc)
 
 
 def focustest(fname, isize, net, thres=0, IF_ABS=False):

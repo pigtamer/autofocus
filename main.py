@@ -18,7 +18,7 @@ ctx = mx.gpu()
 parser = argparse.ArgumentParser()
 parser.add_argument("-l", "--load", dest="load",
                     help="bool: load model to directly infer rather than training",
-                    type=int, default=0)
+                    type=int, default=1)
 parser.add_argument("-b", "--base", dest="base",
                     help="bool: using additional base network",
                     type=int, default=0)
@@ -48,7 +48,7 @@ parser.add_argument("-mp", "--model_path", dest="model_path",
                     type=str, default="../params/autofocus/")
 parser.add_argument("-tp", "--test_path", dest="test_path",
                     help="str: the path to your test img",
-                    type=str, default=".../data/uav/dji_island_4.mp4")
+                    type=str, default="../data/dji1.mp4")
 args = parser.parse_args()
 
 
@@ -85,7 +85,7 @@ net0.load_parameters("../params/autofocus/Focuser-is256e50bs08-pResNet50-dUSC147
 basenet = net0[0]
 focusnet = net0[1]
 
-det_branch = detmod.LightSSD(num_cls=1, num_ach=ach_params.num_anchors)
+det_branch = detmod.LightSSD(num_cls=1, num_ach=ach_params.num_anchors, IF_TINY=True)
 
 
 class detnet(nn.HybridBlock):
@@ -104,11 +104,9 @@ class detnet(nn.HybridBlock):
         fmap = self.focus_branch(self.basenet(x))
         conn = calcConnect(fmap[0, 0, :, :].asnumpy(), gau_sigma=1,
                            thres_ratio=0.9, conn=1, IF_ABS=True)
-        focus_area, focus_loc = genChip(x[0, 0, :, :].asnumpy(), conn, (256, 256))
-
-        det_this_scl = self.detect_branch(nd.array(focus_area[0]).
-                                          expand_dims(0).expand_dims(0))
-        return (focus_area, focus_loc, det_this_scl)
+        focus_area, area_coord, focus_loc = genChip(x[0, :, :, :].asnumpy(), conn, (256, 256))
+        det_this_scl = self.detect_branch(nd.array(focus_area[0]).expand_dims(0))
+        return (focus_area, focus_loc, area_coord, det_this_scl)
 
 
 net = detnet(base=basenet,
@@ -128,16 +126,78 @@ batch = train_iter.next()
 trainer = mx.gluon.Trainer(net.collect_params(), args.optimize_method,
                            {'learning_rate': args.learning_rate, 'wd': 5E-4})
 
+def predict(X, wf = 256, hf = 256, Wf=1024, Hf=1024):
+    focus_chips, focus_locs, area_coord, det_res = net(X)
+    chip_xmin, chip_ymin = area_coord[0][0] / Wf, area_coord[0][1]/Hf
+    anchors, cls_preds, bbox_preds = det_res
+    cls_probs = cls_preds.softmax().transpose((0, 2, 1))
+    output = nd.contrib.MultiBoxDetection(cls_probs, bbox_preds, anchors)
+    idx = [i for i, row in enumerate(output[0]) if row[0].asscalar() != -1]
+    if idx == []: return nd.array([[0, 0, 0, 0, 0, 0, 0]])
+    output = output[0, idx]
+    output[:, 2] *= hf/Hf
+    output[:, 3] *= hf/Hf
+    output[:, 4] *= wf/Wf
+    output[:, 5] *= wf/Wf
 
-def err_eval(bbox_preds, bbox_labels):
-    return (bbox_labels - bbox_preds).abs().sum().asscalar()
+    output[:, 2] += chip_xmin
+    output[:, 3] += chip_xmin
+    output[:, 4] += chip_ymin
+    output[:, 5] += chip_ymin
+    return output
 
+def display(img, output, frame_idx=0, threshold=0, show_all=0):
+    lscore = []
+    for row in output:
+        lscore.append(row[1].asscalar())
+    for row in output:
+        score = row[1].asscalar()
+        if score < threshold:
+            continue
+        h, w = img.shape[0:2]
+        bbox = [row[2:6] * nd.array((w, h, w, h), ctx=row.context)]
+        if score == max(lscore):
+            cv.rectangle(img, (bbox[0][0].asscalar(), bbox[0][1].asscalar()),
+                         (bbox[0][2].asscalar(), bbox[0][3].asscalar()),
+                         (1. * (1 - score), 1. * score, 1. * (1 - score)),
+                         int(10 * score))
+
+            cv.putText(img, "f%s:%3.2f" % (frame_idx, score), org=(bbox[0][0].asscalar(), bbox[0][1].asscalar()),
+                       fontFace=cv.FONT_HERSHEY_SIMPLEX, fontScale=0.5, color=(0, 255, 0))
+        if show_all:
+            cv.rectangle(img, (bbox[0][0].asscalar(), bbox[0][1].asscalar()),
+                         (bbox[0][2].asscalar(), bbox[0][3].asscalar()),
+                         (1. * (1 - score), 1. * score, 1. * (1 - score)),
+                         int(10 * score))
+        cv.imshow("res", img)
+    cv.waitKey(10)
 
 cls_loss = gloss.SoftmaxCrossEntropyLoss()
 bbox_loss = gloss.L1Loss()
 
 if args.load:
-    net._children["detect_branch"].load_parameters("../params/myssd.params")
+    net._children["detect_branch"].load_parameters("../params/ssd/myssd5.params")
+    # vid = 2666;
+    # im = "0001";
+    # dp = "../data/uav/usc/";
+    # isize = 1024
+    # fname = dp + "%s/" % vid + "img/%s.jpg" % im
+    # frame = cv.imread(fname)
+
+    cap = cv.VideoCapture(args.test_path)
+    rd = 0;isize=1024
+    while True:
+        ret, frame = cap.read()
+
+        img = nd.array(frame)
+        img = image.imresize(img, isize, isize)
+        feature = img.astype('float32')
+        print(feature.shape)
+        X = feature.transpose((2, 0, 1)).expand_dims(axis=0)
+        X = X.as_in_context(mx.gpu())
+        output = predict(X)
+        display(cv.resize(frame, (1280,720)), output, threshold=0.1)
+
     # net.load_parameters(args.model_path + "Focuser-is256e50bs08-pResNet50-dUSC1479raw-lr0.01x10")
     # focusplot(net, 3200, 1029, thr=0.9, dp="../../data/uav/usc/")
     print("pause here")
