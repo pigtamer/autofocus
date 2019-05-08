@@ -92,20 +92,24 @@ def focusplot(net, vid=2666, im="0001", dp="/home/cunyuan/code/pycharm/data/uav/
     plt.subplot(221);
     plt.imshow(fmap[0, 0, :, :].asnumpy());
     plt.xlabel("(a)");
+    cv.imwrite("heatmap.jpg", fmap[0, 0, :, :].asnumpy())
     plt.subplot(222);
     plt.imshow(conn[1]);
+    cv.imwrite("FocusPix.jpg", conn[1])
     plt.xlabel("(b)");
     plt.subplot(223);
     plt.xlabel("(c)");
     plt.imshow(cv.resize(fmap[0, 0, :, :].asnumpy(), (isize, isize))
                * nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3, cmap="gray")
+    cv.imwrite("multheat.jpg", cv.resize(fmap[0, 0, :, :].asnumpy(), (isize, isize))
+               * nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3)
     plt.subplot(224);
     plt.xlabel("(d)");
     plt.imshow(cv.resize(conn[1].astype(np.float32), (isize, isize))
                * nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3, cmap="gray")
     plt.figure(2);
-    plt.imshow(nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3, cmap="gray")
-
+    plt.imshow(cv.resize(cv.cvtColor(frame, cv.COLOR_BGR2RGB), (isize, isize)))
+    cv.imwrite("input.jpg",cv.resize(frame, (isize, isize)))
 
 class FocusBranch(nn.Block):
     def __init__(self, **kwargs):

@@ -42,7 +42,7 @@ parser.add_argument("-dp", "--data_path", dest="data_path",
 # ../../data/uav/usc/1479/output/cropped/
 parser.add_argument("-mp", "--model_path", dest="model_path",
                     help="str: the path to load and save model",
-                    type=str, default="/home/cunyuan/code/pycharm/params/autofocus/")
+                    type=str, default="../../params/autofocus/")
 parser.add_argument("-tp", "--test_path", dest="test_path",
                     help="str: the path to your test img",
                     type=str, default="../../data/uav/dji_island_4.mp4")
@@ -114,7 +114,8 @@ def err_eval(bbox_preds, bbox_labels):
 
 if args.load:
     net.load_parameters(args.model_path + "Focuser-is256e50bs08-pResNet50-dUSC1479raw-lr0.01x10")
-    # focustest()
+    focusplot(net, 3200, 1029, thr=0.9, dp="../../data/uav/usc/")
+    print("pause here")
 else:
     lerr, lcnt = [], []
     for epoch in range(args.num_epoches):
