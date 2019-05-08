@@ -15,7 +15,7 @@ from gluoncv import model_zoo, data, utils
 parser = argparse.ArgumentParser()
 parser.add_argument("-l", "--load", dest="load",
                     help="bool: load model to directly infer rather than training",
-                    type=int, default=1)
+                    type=int, default=0)
 parser.add_argument("-b", "--base", dest="base",
                     help="bool: using additional base network",
                     type=int, default=0)
@@ -152,7 +152,7 @@ else:
               (epoch + 1, args.num_epoches, err, time.time() - start))
 
         if (epoch + 1) % 5 == 0:
-            net.save_parameters('Focuser')
+            net.export('Focuser')
     print(lcnt, "\n", lerr)
 
 cap = cv.VideoCapture(args.test_path)

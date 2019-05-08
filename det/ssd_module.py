@@ -136,7 +136,7 @@ class LightRetina(nn.HybridBlock):
         for k in range(1): # We got some problem here.
             (x, anchors[k], cls_preds[k], bbox_preds[k]) = \
                 hybrid_blk_forward(x, getattr(self, "blk%d" % (k + 1)),
-                                   anchor_params.retina_size[k], anchor_params.ratios[k],
+                                   anchor_params.retina_sizes[k], anchor_params.ratios[k],
                                    getattr(self, "cls%d" % (k + 1)), getattr(self, "reg%d" % (k + 1)))
             # print("SSD:     layer[%d], fmap shape %s, anchor %s" % (k + 1, x.shape, anchors[k].shape))
         return (sym.concat(*anchors, dim=1),

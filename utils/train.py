@@ -31,8 +31,7 @@ def validate(val_iter, net, ctx=mx.gpu()):
         anchors, cls_preds, bbox_preds = net(X)
         # assign classes and bboxes for each anchor
         bbox_labels, bbox_masks, cls_labels = nd.contrib.MultiBoxTarget(anchor=anchors, label=Y,
-                                                                        cls_pred=cls_preds.transpose((0, 2, 1)),
-                                                                        negative_mining_ratio=10)
+                                                                        cls_pred=cls_preds.transpose((0, 2, 1)))
         # calc loss
         l = calc_loss(cls_lossfunc, bbox_lossfunc, cls_preds, cls_labels,
                       bbox_preds, bbox_labels, bbox_masks)
