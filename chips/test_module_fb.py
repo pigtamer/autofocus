@@ -21,17 +21,17 @@ parser.add_argument("-b", "--base", dest="base",
                     type=int, default=0)
 parser.add_argument("-e", "--epoches", dest="num_epoches",
                     help="int: trainig epoches",
-                    type=int, default=50)
+                    type=int, default=200)
 parser.add_argument("-bs", "--batch_size", dest="batch_size",
                     help="int: batch size for training",
-                    type=int, default=8)
+                    type=int, default=32)
 parser.add_argument("-is", "--imsize", dest="input_size",
                     help="int: input size",
                     type=int, default=256)
 
 parser.add_argument("-lr", "--learning_rate", dest="learning_rate",
                     help="float: learning rate of optimization process",
-                    type=float, default=0.01)
+                    type=float, default=0.05)
 parser.add_argument("-opt", "--optimize", dest="optimize_method",
                     help="optimization method",
                     type=str, default="sgd")
@@ -45,7 +45,7 @@ parser.add_argument("-mp", "--model_path", dest="model_path",
                     type=str, default="../../params/autofocus/")
 parser.add_argument("-tp", "--test_path", dest="test_path",
                     help="str: the path to your test img",
-                    type=str, default="../../data/uav/dji_island_4.mp4")
+                    type=str, default="../../data/video1479.avi")
 args = parser.parse_args()
 
 
@@ -93,8 +93,10 @@ net.add(
     basenet,
     HybridFocusBranch()
 )
+
 net[1].initialize(ctx=mx.gpu())
-net[1].collect_params().setattr('lr_mult', 10)
+
+net[1].collect_params().setattr('lr_mult', 2)
 net.hybridize()
 
 
@@ -114,7 +116,7 @@ def err_eval(bbox_preds, bbox_labels):
 
 if args.load:
     net.load_parameters(args.model_path + "Focuser-is256e50bs08-pResNet50-dUSC1479raw-lr0.01x10")
-    focusplot(net, 3200, 1029, thr=0.9, dp="../../data/uav/usc/")
+    focusplot(net, 3200, 1029, thr=0.8, dp="../../data/uav/usc/")
     print("pause here")
 else:
     lerr, lcnt = [], []
@@ -153,6 +155,7 @@ else:
 
         if (epoch + 1) % 5 == 0:
             net.export('Focuser')
+            net.save_parameters('Focuser')
     print(lcnt, "\n", lerr)
 
 cap = cv.VideoCapture(args.test_path)
@@ -168,7 +171,7 @@ while True:
 
     fmap = net(X.as_in_context(mx.gpu()))
     conn = calcConnect(fmap[0, 0, :, :].asnumpy(), gau_sigma=0,
-                       thres_ratio=0.9, conn=1, IF_ABS=True)
+                       thres_ratio=0.8, conn=1, IF_ABS=True)
     plt.imshow(cv.resize(conn[1].astype(np.float32), (isize, isize))
                * nd.sum(X[0, :, :, :], axis=0).asnumpy() / 3, cmap="gray")
     countt = time.time() - countt

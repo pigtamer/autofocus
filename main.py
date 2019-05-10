@@ -58,9 +58,9 @@ def load_data_uav(data_dir='../data/uav', batch_size=4, edge_size=256):
         path_imgrec=os.path.join(data_dir, 'train.rec'),
         path_imgidx=os.path.join(data_dir, 'train.idx'),
         batch_size=batch_size,
-        data_shape=(3, edge_size, edge_size),  # 输出图像的形状
-        shuffle=True,  # 以随机顺序读取数据集
-        rand_crop=1,  # 随机裁剪的概率为1
+        data_shape=(3, edge_size, edge_size),  # shape of output image
+        shuffle=True,  # read data in randomly
+        rand_crop=1,  # prob of cropping randomly
         min_object_covered=0.95, max_attempts=200)
     val_iter = image.ImageDetIter(
         path_imgrec=os.path.join(data_dir, 'val.rec'), batch_size=batch_size,
@@ -79,9 +79,10 @@ net0.add(
     basenet,
     HybridFocusBranch()
 )
-prenet = nn.SymbolBlock.imports("Focuser-symbol.json", ['data'],
-                                "Focuser-0000.params", ctx=mx.gpu())
+
 net0.load_parameters("../params/autofocus/Focuser-is256e50bs08-pResNet50-dUSC1479raw-lr0.01x10", ctx=mx.gpu())
+# net0.load_parameters("./chips/Focuser-0000.params", ctx=mx.gpu())
+
 basenet = net0[0]
 focusnet = net0[1]
 
@@ -136,17 +137,17 @@ def predict(X, wf = 256, hf = 256, Wf=1024, Hf=1024):
     if idx == []: return nd.array([[0, 0, 0, 0, 0, 0, 0]])
     output = output[0, idx]
     output[:, 2] *= hf/Hf
-    output[:, 3] *= hf/Hf
-    output[:, 4] *= wf/Wf
+    output[:, 4] *= hf/Hf
+    output[:, 3] *= wf/Wf
     output[:, 5] *= wf/Wf
 
     output[:, 2] += chip_xmin
-    output[:, 3] += chip_xmin
-    output[:, 4] += chip_ymin
+    output[:, 4] += chip_xmin
+    output[:, 3] += chip_ymin
     output[:, 5] += chip_ymin
-    return output
+    return output, area_coord
 
-def display(img, output, frame_idx=0, threshold=0, show_all=0):
+def display(img, output, chip, frame_idx=0, threshold=0, show_all=0):
     lscore = []
     for row in output:
         lscore.append(row[1].asscalar())
@@ -169,6 +170,7 @@ def display(img, output, frame_idx=0, threshold=0, show_all=0):
                          (bbox[0][2].asscalar(), bbox[0][3].asscalar()),
                          (1. * (1 - score), 1. * score, 1. * (1 - score)),
                          int(10 * score))
+        cv.rectangle(img, (chip[0][0], chip[0][1]),(chip[0][2], chip[0][3]),  (1,1,1), 2)
         cv.imshow("res", img)
     cv.waitKey(10)
 
@@ -187,16 +189,17 @@ if args.load:
     cap = cv.VideoCapture(args.test_path)
     rd = 0;isize=1024
     while True:
+        rd += 1
         ret, frame = cap.read()
-
+        if rd < 500: continue
         img = nd.array(frame)
         img = image.imresize(img, isize, isize)
         feature = img.astype('float32')
         print(feature.shape)
         X = feature.transpose((2, 0, 1)).expand_dims(axis=0)
         X = X.as_in_context(mx.gpu())
-        output = predict(X)
-        display(cv.resize(frame, (1280,720)), output, threshold=0.1)
+        output, chip = predict(X)
+        display(cv.resize(frame, (1024,1024)), output, chip, frame_idx=rd, threshold=0)
 
     # net.load_parameters(args.model_path + "Focuser-is256e50bs08-pResNet50-dUSC1479raw-lr0.01x10")
     # focusplot(net, 3200, 1029, thr=0.9, dp="../../data/uav/usc/")

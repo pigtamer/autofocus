@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="286c8353-9499-4b59-8dc5-a1e9a77866f1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/chips/focus_branch.py" beforeDir="false" afterPath="$PROJECT_DIR$/chips/focus_branch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/det/ssd_module.py" beforeDir="false" afterPath="$PROJECT_DIR$/det/ssd_module.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chips/FocusPix.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/chips/FocusPix.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chips/heatmap.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/chips/heatmap.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chips/input.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/chips/input.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chips/multheat.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/chips/multheat.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chips/test_module_fb.py" beforeDir="false" afterPath="$PROJECT_DIR$/chips/test_module_fb.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/vott_parse.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/vott_parse.py" afterDir="false" />
     </list>
@@ -20,31 +24,10 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="229">
-                  <caret line="50" column="55" selection-start-line="50" selection-start-column="55" selection-end-line="50" selection-end-column="55" />
+                <state relative-caret-position="101">
+                  <caret line="193" column="29" lean-forward="true" selection-start-line="193" selection-start-column="29" selection-end-line="193" selection-end-column="29" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/mxnet/ndarray/ndarray.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="157">
-                  <caret line="785" selection-start-line="785" selection-end-line="785" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/utils/utils.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="17" selection-start-line="17" selection-end-line="17" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -54,7 +37,7 @@
             <entry file="file://$PROJECT_DIR$/det/ssd_module.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="147">
-                  <caret line="35" column="31" lean-forward="true" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+                  <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
                 </state>
               </provider>
             </entry>
@@ -62,10 +45,22 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/chips/test_module_fb.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-298">
-                  <caret line="137" column="29" selection-start-line="137" selection-start-column="29" selection-end-line="137" selection-end-column="29" />
+                <state relative-caret-position="210">
+                  <caret line="157" column="42" lean-forward="true" selection-start-line="157" selection-start-column="42" selection-end-line="157" selection-end-column="42" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/utils/vott_parse.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="404">
+                  <caret line="63" column="68" selection-start-line="63" selection-start-column="68" selection-end-line="63" selection-end-column="68" />
+                  <folding>
+                    <element signature="e#11#44#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -75,11 +70,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/chips/focus_branch.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="223">
-                  <caret line="43" column="21" lean-forward="true" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+                <state relative-caret-position="446">
+                  <caret line="54" column="58" selection-start-line="54" selection-start-column="58" selection-end-line="54" selection-end-column="58" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -90,22 +85,10 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/utils/coco_af.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="42">
+                <state relative-caret-position="-2768">
                   <caret line="2" selection-start-line="2" selection-end-line="2" />
                   <folding>
                     <element signature="e#81#114#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/utils/vott_parse.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-215">
-                  <caret line="53" column="24" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="24" />
-                  <folding>
-                    <element signature="e#11#44#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -173,11 +156,11 @@
         <option value="$PROJECT_DIR$/symbols/finetune.py" />
         <option value="$PROJECT_DIR$/det/ssd/__init__.py" />
         <option value="$PROJECT_DIR$/finetune/finetune.py" />
-        <option value="$PROJECT_DIR$/chips/test_module_fb.py" />
         <option value="$PROJECT_DIR$/det/anchor_params.py" />
         <option value="$PROJECT_DIR$/utils/train.py" />
         <option value="$PROJECT_DIR$/det/ssd_module.py" />
         <option value="$PROJECT_DIR$/chips/focus_branch.py" />
+        <option value="$PROJECT_DIR$/chips/test_module_fb.py" />
         <option value="$PROJECT_DIR$/utils/vott_parse.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
@@ -231,7 +214,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mx_fpn" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../myssd" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
@@ -527,17 +510,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/chips/test_module_fb.py</url>
-          <line>115</line>
+          <line>117</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/chips/test_module_fb.py</url>
-          <line>100</line>
+          <line>102</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/chips/test_module_fb.py</url>
-          <line>114</line>
+          <line>116</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -547,38 +530,48 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/chips/test_module_fb.py</url>
-          <line>116</line>
+          <line>118</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/chips/test_module_fb.py</url>
-          <line>117</line>
+          <line>119</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>211</line>
+          <line>214</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>218</line>
+          <line>221</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>221</line>
+          <line>224</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>202</line>
+          <line>205</line>
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>187</line>
+          <line>189</line>
           <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/utils/vott_parse.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/utils/vott_parse.py</url>
+          <line>59</line>
+          <option name="timeStamp" value="71" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -762,37 +755,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/coco_af.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
+        <state relative-caret-position="-2768">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#81#114#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chips/test_module_fb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-298">
-          <caret line="137" column="29" selection-start-line="137" selection-start-column="29" selection-end-line="137" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/det/ssd_module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="35" column="31" lean-forward="true" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -804,10 +770,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/det/ssd_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chips/test_module_fb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="157" column="42" lean-forward="true" selection-start-line="157" selection-start-column="42" selection-end-line="157" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/chips/focus_branch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="43" column="21" lean-forward="true" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+        <state relative-caret-position="446">
+          <caret line="54" column="58" selection-start-line="54" selection-start-column="58" selection-end-line="54" selection-end-column="58" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -816,8 +809,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/vott_parse.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-215">
-          <caret line="53" column="24" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="24" />
+        <state relative-caret-position="404">
+          <caret line="63" column="68" selection-start-line="63" selection-start-column="68" selection-end-line="63" selection-end-column="68" />
           <folding>
             <element signature="e#11#44#0" expanded="true" />
           </folding>
@@ -826,8 +819,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="50" column="55" selection-start-line="50" selection-start-column="55" selection-end-line="50" selection-end-column="55" />
+        <state relative-caret-position="101">
+          <caret line="193" column="29" lean-forward="true" selection-start-line="193" selection-start-column="29" selection-end-line="193" selection-end-column="29" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>

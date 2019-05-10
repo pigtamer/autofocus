@@ -52,42 +52,47 @@ def cropToROI(img, img_size_y_x, roi, dst_size):
     W_raw, H_raw = img_size_y_x
     W_dst, H_dst = dst_size
     x_lmargin, y_lmargin, x_rmargin, y_rmargin = xmin, ymin, W_raw - xmax, H_raw - ymax
-
-    if x_lmargin > x_rmargin:
-        if x_rmargin != 0:
-            dx_r = random.randint(0, min(x_rmargin, abs(W_dst - w)))
-        else:
-            dx_r = 0
-        xmax_dst = xmax + dx_r
-        xmin_dst = xmax_dst - W_dst
-
+    if x_lmargin <0 or y_lmargin <0 or x_rmargin <0 or y_rmargin <0:
+        print(x_lmargin, y_lmargin, x_rmargin, y_rmargin)
+        raise ValueError("margin error")
+    if w>W_dst or h>H_dst:
+        xmin_dst, ymin_dst, xmax_dst, ymax_dst = (0,0,W_dst, H_dst)
+        # raise ValueError("FUCKed up by cropping")
     else:
-        if x_lmargin != 0:
-            dx_l = random.randint(0, min(x_lmargin, abs(W_dst - w)))
+        if x_lmargin > x_rmargin:
+            if x_rmargin != 0:
+                dx_r = random.randint(0, min(x_rmargin, W_dst - w)+1)
+            else:
+                dx_r = 0
+            xmax_dst = xmax + dx_r
+            xmin_dst = xmax_dst - W_dst
         else:
-            dx_l = 0
-        xmin_dst = xmin - dx_l
-        xmax_dst = xmin_dst + W_dst
+            if x_lmargin != 0:
+                dx_l = random.randint(0, min(x_lmargin, W_dst - w)+1)
+            else:
+                dx_l = 0
+            xmin_dst = xmin - dx_l
+            xmax_dst = xmin_dst + W_dst
 
-    if y_lmargin > y_rmargin:
-        if y_rmargin != 0:
-            dy_r = random.randint(0, min(y_rmargin, abs(H_dst - h)))
+        if y_lmargin > y_rmargin:
+            if y_rmargin != 0:
+                dy_r = random.randint(0, min(y_rmargin, H_dst - h)+1)
+            else:
+                dy_r = 0
+            ymax_dst = ymax + dy_r
+            ymin_dst = ymax_dst - H_dst
         else:
-            dy_r = 0
-        ymax_dst = ymax + dy_r
-        ymin_dst = ymax_dst - H_dst
-    else:
-        if y_lmargin != 0:
-            dy_l = random.randint(0, min(y_lmargin, abs(H_dst - h)))
-        else:
-            dy_l = 0
-        ymin_dst = ymin - dy_l
-        ymax_dst = ymin_dst + H_dst
+            if y_lmargin != 0:
+                dy_l = random.randint(0, min(y_lmargin, H_dst - h)+1)
+            else:
+                dy_l = 0
+            ymin_dst = ymin - dy_l
+            ymax_dst = ymin_dst + H_dst
 
-    xmin_dst, ymin_dst, xmax_dst, ymax_dst = \
-        int(xmin_dst), int(ymin_dst), int(xmax_dst), int(ymax_dst)
+        xmin_dst, ymin_dst, xmax_dst, ymax_dst = \
+            int(xmin_dst), int(ymin_dst), int(xmax_dst), int(ymax_dst)
     dst_img = img[:, ymin_dst:ymax_dst, xmin_dst:xmax_dst]
-    print(ymin_dst, ymax_dst, xmin_dst, xmax_dst)
+    # print(ymin_dst, ymax_dst, xmin_dst, xmax_dst)
     new_loc = [xmin - xmin_dst, ymin - ymin_dst, xmax - xmin_dst, ymax - ymin_dst]
     dst_coord = [xmin_dst, ymin_dst, xmax_dst, ymax_dst]
     return (dst_img, dst_coord, new_loc)
