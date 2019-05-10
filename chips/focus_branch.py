@@ -51,7 +51,7 @@ def genChip(frame, connect_props, dst_size):
         bbox[1] = int(Hf / hf) * x1
         bbox[2] = int(Wf / wf) * y2
         bbox[3] = int(Hf / hf) * x2
-        print(bbox)
+        # print("bbox by focus", bbox)
         l_chips[k], l_chip_coord[k], l_new_loc[k] = cropToROI(img=frame, img_size_y_x=(Hf, Wf),
                                              roi=bbox, dst_size=dst_size)
     return (l_chips, l_chip_coord, l_new_loc)

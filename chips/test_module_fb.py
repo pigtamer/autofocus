@@ -21,7 +21,7 @@ parser.add_argument("-b", "--base", dest="base",
                     type=int, default=0)
 parser.add_argument("-e", "--epoches", dest="num_epoches",
                     help="int: trainig epoches",
-                    type=int, default=200)
+                    type=int, default=20)
 parser.add_argument("-bs", "--batch_size", dest="batch_size",
                     help="int: batch size for training",
                     type=int, default=32)
@@ -31,14 +31,14 @@ parser.add_argument("-is", "--imsize", dest="input_size",
 
 parser.add_argument("-lr", "--learning_rate", dest="learning_rate",
                     help="float: learning rate of optimization process",
-                    type=float, default=0.05)
+                    type=float, default=0.02)
 parser.add_argument("-opt", "--optimize", dest="optimize_method",
                     help="optimization method",
                     type=str, default="sgd")
 
 parser.add_argument("-dp", "--data_path", dest="data_path",
                     help="str: the path to dataset",
-                    type=str, default="../../data/uav/usc/1479/raw/")
+                    type=str, default="../../data/uav/chengdu/")
 # ../../data/uav/usc/1479/output/cropped/
 parser.add_argument("-mp", "--model_path", dest="model_path",
                     help="str: the path to load and save model",
