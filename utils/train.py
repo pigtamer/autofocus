@@ -39,7 +39,7 @@ def validate(val_iter, net, ctx=mx.gpu()):
             bbox = [row[2:6] * nd.array((w, h, w, h), ctx=row.context)]
             if score == max(lscore):
                 iou_this = iou(bbox[0].asnumpy(), Y[0])
-            if iou_this > 0:
+            if iou_this > 0.5:
                 acc+=1
         idx += 1
     return acc/idx

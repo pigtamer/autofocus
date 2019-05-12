@@ -31,7 +31,7 @@ parser.add_argument("-bs", "--batch_size", dest="batch_size",
                     type=int, default=32)
 parser.add_argument("-is", "--imsize", dest="input_size",
                     help="int: input size",
-                    type=int, default=256)
+                    type=int, default=1024)
 
 parser.add_argument("-lr", "--learning_rate", dest="learning_rate",
                     help="float: learning rate of optimization process",
@@ -42,14 +42,14 @@ parser.add_argument("-opt", "--optimize", dest="optimize_method",
 
 parser.add_argument("-dp", "--data_path", dest="data_path",
                     help="str: the path to dataset",
-                    type=str, default="../data/uav/usc/1479/cropped/")
+                    type=str, default="../data/uav/usc/1479/raw/")
 # ../../data/uav/usc/1479/output/cropped/
 parser.add_argument("-mp", "--model_path", dest="model_path",
                     help="str: the path to load and save model",
                     type=str, default="../params/autofocus/")
 parser.add_argument("-tp", "--test_path", dest="test_path",
                     help="str: the path to your test img",
-                    type=str, default="../data/video233.avi")
+                    type=str, default="../data/video2666.avi")
 args = parser.parse_args()
 
 
@@ -81,8 +81,8 @@ net0.add(
     HybridFocusBranch()
 )
 
-# net0.load_parameters("../params/autofocus/Focuser-is256e50bs08-pResNet50-dUSC1479raw-lr0.01x10", ctx=mx.gpu())
-net0.load_parameters("./chips/Focuser", ctx=mx.gpu())
+net0.load_parameters("../params/autofocus/Focuser-is256e50bs08-pResNet50-dUSC1479raw-lr0.01x10", ctx=mx.gpu())
+# net0.load_parameters("./chips/Focuser", ctx=mx.gpu())
 
 basenet = net0[0]
 focusnet = net0[1]
@@ -178,14 +178,15 @@ def display(img, output, chip, frame_idx=0, threshold=0, show_all=0):
                          (bbox[0][2].asscalar(), bbox[0][3].asscalar()),
                          (1. * (1 - score), 1. * score, 1. * (1 - score)),
                          int(10 * score))
-        # cv.rectangle(img, (chip[0][0], chip[0][1]), (chip[0][2], chip[0][3]), (1, 1, 1), 2)
+        cv.rectangle(img, (int(chip[0][0]/1024*1280), int(chip[0][1]/1024*720)),
+                     (int(chip[0][2]/1024*1280), int(chip[0][3]/1024*720)), (1, 1, 1), 2)
         cv.imshow("res", img)
     cv.waitKey(10)
 
 
 cls_loss = gloss.SoftmaxCrossEntropyLoss()
 bbox_loss = gloss.L1Loss()
-def validate(val_iter, net, ctx=mx.gpu()):
+def validate_one(val_iter, net, ctx=mx.gpu()):
     idx, acc = 0 ,0
     val_iter.reset()
     for batch in val_iter:
@@ -202,14 +203,16 @@ def validate(val_iter, net, ctx=mx.gpu()):
             bbox = [row[2:6] * nd.array((w, h, w, h), ctx=row.context)]
             if score == max(lscore):
                 iou_this = iou(bbox[0].asnumpy(), Y[0][0][1:].asnumpy()*1024)
-        if iou_this > 0:
-            acc+=1
-        idx += 1
+        if (bbox[0][2] - bbox[0][0]) * (bbox[0][3] - bbox[0][1]) < 32 ** 2:
+            if iou_this > 0.3:
+                    acc+=1
+            idx += 1
     return acc/idx
+
 if args.load:
     net._children["detect_branch"].load_parameters("../params/ssd/myssd5.params")
-    ap = validate(val_iter, net)
-    print(ap)
+    ap = validate_one(val_iter, net)
+    # print(ap)
 
     # vid = 2666;
     # im = "0001";
